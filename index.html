@@ -197,7 +197,7 @@
     }
     .hero__title {
       font-family: "Zen Antique Soft", "Noto Serif JP", serif;
-      font-size: clamp(20px, 2.9vw, 32px) !important;
+      font-size: clamp(17px, 2.9vw, 32px) !important;
       font-weight: 400;
       letter-spacing: 0.01em;
       line-height: 1.7 !important;
@@ -471,7 +471,7 @@
     }
     .lineup-note__headline {
       font-family: "M PLUS 1", sans-serif;
-      font-size: clamp(44px, 8vw, 72px);
+      font-size: clamp(32px, 8vw, 72px);
       font-weight: 800;
       color: var(--white);
       line-height: 1;
@@ -524,13 +524,28 @@
       .commitment-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 480px) {
+      /* Hero */
+      .hero__sub            { font-size: 11px !important; letter-spacing: 0.02em; }
+
+      /* Carousel section title — 各行を1行に収める */
+      .carousel-section .section-title { font-size: 15px !important; }
+
+      /* Product grid */
       .product-grid         { gap: 14px; }
       .product-card__body   { padding: 14px; }
       .product-card__name   { font-size: 14px; }
       .product-card__price  { font-size: 24px; }
       .product-card__cta    { font-size: 14px; padding: 14px 0; }
 
+      /* CTA banner */
+      .lineup-note          { padding: 40px 20px; }
+      .lineup-note__cta     { padding: 18px 24px; min-width: 0; width: 90%; }
+      .lineup-note__cta-main{ font-size: 18px; }
+
+      /* Carousel */
       .carousel__btn        { display: none; }
+
+      /* Early bird bar */
       .early-bird__inner    { flex-wrap: wrap; padding: 12px 16px; gap: 8px; }
       .early-bird__sep      { display: none; }
     }
