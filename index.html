@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2026 夏ギフト・お中元｜ハタダ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Antique+Soft&family=Noto+Serif+JP:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&family=M+PLUS+1:wght@400;500;700;800&display=swap" rel="stylesheet" />
+  <style>
+    /* Custom Properties */
+    :root {
+      --seto-blue:  #5ba4c8;
+      --seto-deep:  #2d6b9e;
+      --shim-deep:  #3d7a58;
+      --gold:       #c8a865;
+      --gold-light: #f0dfa8;
+      --gold-deep:  #9e7c3a;
+      --cream:      #faf7f2;
+      --cream-dark: #f2ede4;
+      --dark-bg:    #16231a;
+      --dark-deep:  #0d1a12;
+      --text-dark:  #2c2418;
+      --text-mid:   #5a4f3e;
+      --text-light: #8a7f72;
+      --white:      #ffffff;
+      --ease-expo:  cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    /* Reset */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    img    { display: block; max-width: 100%; }
+    button { cursor: pointer; }
+    a      { text-decoration: none; }
+
+    body {
+      font-family: "Noto Sans JP", sans-serif;
+      background: var(--cream);
+      color: var(--text-dark);
+      font-size: 16px;
+      line-height: 1.8;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Layout */
+    .container    { max-width: 900px; margin: 0 auto; }
+    .section-header { text-align: center; margin-bottom: 48px; }
+
+    .section-eyebrow {
+      display: block;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--seto-blue);
+      margin-bottom: 10px;
+    }
+    .section-title {
+      font-family: "Zen Antique Soft", "Noto Serif JP", serif;
+      font-size: clamp(22px, 4vw, 34px);
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      color: var(--text-dark);
+      margin-bottom: 16px;
+    }
+    .section-rule {
+      width: 48px; height: 2px;
+      background: linear-gradient(90deg, var(--seto-blue), var(--gold));
+      margin: 0 auto 14px;
+      border-radius: 2px;
+    }
+    .section-rule--left { margin: 0 0 12px; }
+
+    /* Fade-in */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.65s var(--ease-expo), transform 0.65s var(--ease-expo);
+    }
+    .fade-in.is-visible { opacity: 1; transform: none; }
+
+    /* ------------------------------------------------------------------ */
+    /* Early Bird Bar */
+    /* ------------------------------------------------------------------ */
+    .early-bird {
+      background: linear-gradient(135deg, #0d2218 0%, #1a3a2a 50%, #0d2218 100%);
+      color: var(--white);
+      border-bottom: 2px solid rgba(200, 168, 101, 0.4);
+    }
+    .early-bird__inner {
+      width: 100%;
+      padding: 16px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .early-bird__col {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 6px;
+    }
+    .early-bird__col--center { flex: 1.2; }
+    .early-bird__sep {
+      width: 1px; height: 60px;
+      background: rgba(200, 168, 101, 0.3);
+      flex-shrink: 0;
+      margin: 0 16px;
+    }
+    .early-bird__label {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      color: var(--gold-light);
+      background: rgba(200, 168, 101, 0.15);
+      border: 1px solid rgba(200, 168, 101, 0.4);
+      padding: 3px 12px;
+      border-radius: 20px;
+    }
+    .early-bird__deal {
+      font-family: "M PLUS 1", sans-serif;
+      font-size: 24px;
+      font-weight: 800;
+      line-height: 1;
+    }
+    .early-bird__deal em   { font-style: normal; color: var(--gold-light); font-size: 38px; }
+    .early-bird__period    { font-family: "Noto Serif JP", serif; font-size: 13px; color: rgba(255,255,255,0.85); }
+    .early-bird__period strong { color: var(--gold-light); font-size: 15px; }
+    .early-bird__timer {
+      display: inline-block;
+      background: rgba(200, 168, 101, 0.2);
+      border: 1px solid rgba(200, 168, 101, 0.5);
+      color: var(--gold-light);
+      font-family: "M PLUS 1", sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 4px 16px;
+      border-radius: 20px;
+    }
+    .early-bird__days      { font-size: 22px; font-weight: 800; margin: 0 4px; }
+    .early-bird__cond-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      color: var(--gold-light);
+      opacity: 0.7;
+    }
+    .early-bird__cond { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.7; }
+
+    /* ------------------------------------------------------------------ */
+    /* Hero */
+    /* ------------------------------------------------------------------ */
+    .hero {
+      position: relative;
+      min-height: 300px;
+      background: linear-gradient(160deg, #b8ddf2 0%, #daeef8 30%, #f0ece0 65%, #e4d8bc 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+      padding: 52px 20px;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 40% at 20% 50%, rgba(91,164,200,0.18) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 60% at 80% 30%, rgba(200,168,101,0.12) 0%, transparent 70%);
+    }
+    .hero__inner { position: relative; z-index: 1; width: 100%; }
+    .hero__badge {
+      display: inline-block;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, var(--seto-blue), var(--seto-deep));
+      color: var(--white);
+      font-family: "Noto Serif JP", serif;
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      padding: 14px 40px;
+      border-radius: 36px;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 20px rgba(45,107,158,0.32);
+      animation: heroFadeUp 0.9s 0.05s var(--ease-expo) both;
+    }
+    .hero__badge::after {
+      content: "";
+      position: absolute;
+      top: 0; left: -80%; width: 50%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3) 50%, transparent);
+      animation: badgeShimmer 3.5s 1s infinite;
+    }
+    .hero__title {
+      font-family: "Zen Antique Soft", "Noto Serif JP", serif;
+      font-size: clamp(20px, 2.9vw, 32px) !important;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+      line-height: 1.7 !important;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+      animation: heroFadeUp 1.1s var(--ease-expo) both;
+    }
+    .hero__title span {
+      color: #1a3060;
+      display: inline-block;
+      position: relative;
+      font-size: 1.12em;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      padding: 0 2px;
+    }
+    .hero__sub {
+      font-family: "Noto Serif JP", serif;
+      font-size: clamp(13px, 2vw, 16px);
+      color: var(--text-mid);
+      letter-spacing: 0.06em;
+      animation: heroFadeUp 1.3s 0.2s var(--ease-expo) both;
+    }
+    .hero__sub strong { color: var(--seto-deep); }
+
+    /* ------------------------------------------------------------------ */
+    /* Carousel */
+    /* ------------------------------------------------------------------ */
+    .carousel-section { background: var(--dark-bg); padding: 72px 20px; }
+    .carousel-section .section-eyebrow { color: var(--white) !important; }
+    .carousel-section .section-title   { color: var(--white) !important; }
+    .carousel-section .section-rule    { background: linear-gradient(90deg, var(--gold), var(--seto-blue)); }
+
+    .carousel {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto 14px;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 12px 60px rgba(0,0,0,0.55);
+    }
+    .carousel__track { display: flex; transition: transform 0.52s cubic-bezier(0.4,0,0.2,1); will-change: transform; }
+    .carousel__slide { min-width: 100%; position: relative; }
+    .carousel__slide img { width: 100%; aspect-ratio: 4/3; object-fit: contain; background: var(--dark-deep); }
+    .carousel__caption {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 32px 28px 22px;
+      background: linear-gradient(0deg, rgba(8,16,10,0.9) 0%, rgba(8,16,10,0.45) 55%, transparent 100%);
+    }
+    .carousel__tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      padding: 3px 13px;
+      border-radius: 20px;
+      margin-bottom: 9px;
+    }
+    .tag--seto     { background: rgba(91,164,200,0.88);  color: var(--white); }
+    .tag--shimanto { background: rgba(122,173,140,0.88); color: var(--white); }
+    .tag--mix      { background: rgba(200,168,101,0.88); color: #1a1a10; }
+    .carousel__caption p {
+      font-family: "Noto Serif JP", serif;
+      font-size: 15px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.93);
+      line-height: 1.85;
+      letter-spacing: 0.08em;
+    }
+    .carousel__btn {
+      position: absolute;
+      top: 50%; transform: translateY(-50%);
+      background: rgba(0,0,0,0.35);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: var(--white);
+      font-size: 18px;
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s;
+      z-index: 2;
+    }
+    .carousel__btn:hover { background: rgba(0,0,0,0.6); }
+    .carousel__btn--prev { left: 12px; }
+    .carousel__btn--next { right: 12px; }
+    .carousel__dots { display: flex; justify-content: center; gap: 8px; margin-top: 16px; }
+    .carousel__dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.25);
+      border: none; padding: 0;
+      transition: all 0.3s;
+    }
+    .carousel__dot.is-active { background: var(--gold); transform: scale(1.3); }
+
+    /* ------------------------------------------------------------------ */
+    /* Commitment */
+    /* ------------------------------------------------------------------ */
+    .commitment-section { padding: 72px 20px; background: var(--cream-dark); }
+    .commitment-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .commitment-item__img { width: 100%; border-radius: 12px; box-shadow: 0 4px 24px rgba(44,36,24,0.08); margin-bottom: 16px; }
+    .commitment-item__title {
+      font-family: "Noto Serif JP", serif;
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      margin: 8px 0;
+    }
+    .commitment-item__text { font-size: 14px; line-height: 2; color: var(--text-mid); }
+
+    /* ------------------------------------------------------------------ */
+    /* Lineup / Products */
+    /* ------------------------------------------------------------------ */
+    .lineup-section { background: var(--cream); padding: 80px 20px; }
+    .lineup-section .section-header::after {
+      content: "◇";
+      display: block;
+      color: var(--gold);
+      font-size: 14px;
+      margin-top: 12px;
+      opacity: 0.6;
+    }
+
+    /* Filter tabs */
+    .filter-tabs { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; margin-bottom: 40px; }
+    .filter-tab {
+      font-family: "Noto Serif JP", serif;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      padding: 9px 22px;
+      border-radius: 30px;
+      border: 1.5px solid var(--text-light);
+      background: transparent;
+      color: var(--text-mid);
+      transition: all 0.25s;
+    }
+    .filter-tab:hover,
+    .filter-tab[data-active="all"]      { background: var(--text-dark); border-color: var(--text-dark); color: var(--white); }
+    .filter-tab[data-active="seto"]     { background: var(--seto-deep); border-color: var(--seto-deep); color: var(--white); }
+    .filter-tab[data-active="shimanto"] { background: var(--shim-deep); border-color: var(--shim-deep); color: var(--white); }
+    .filter-tab[data-active="mix"]      { background: var(--gold-deep); border-color: var(--gold-deep); color: var(--white); }
+
+    /* Product grid */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    /* Product card */
+    .product-card {
+      background: var(--white);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 40px rgba(44,36,24,0.12);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .product-card:hover { transform: translateY(-6px); box-shadow: 0 16px 56px rgba(44,36,24,0.17); }
+    .product-card__img-wrap { position: relative; aspect-ratio: 1; overflow: hidden; background: var(--white); }
+    .product-card__img-wrap img { width: 100%; height: 100%; object-fit: contain; transition: transform 0.4s; }
+    .product-card:hover .product-card__img-wrap img { transform: scale(1.04); }
+    .product-card__type {
+      position: absolute;
+      bottom: 10px; left: 10px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      padding: 3px 11px;
+      border-radius: 20px;
+      color: var(--white);
+      z-index: 2;
+    }
+    .type--seto     { background: rgba(45,107,158,0.88); }
+    .type--shimanto { background: rgba(61,122,88,0.88); }
+    .type--mix      { background: rgba(158,124,58,0.88); }
+
+    .product-card__body { padding: 20px 20px 16px; flex: 1; display: flex; flex-direction: column; }
+    .product-card__name {
+      font-family: "Noto Serif JP", serif;
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+      line-height: 1.5;
+    }
+    .product-card__divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--cream-dark) 20%, var(--cream-dark) 80%, transparent);
+      margin-bottom: 12px;
+    }
+    .product-card__contents { font-size: 13px; color: var(--text-mid); line-height: 1.8; margin-bottom: 10px; }
+    .product-card__price-row {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+    .product-card__price {
+      font-family: "M PLUS 1", sans-serif;
+      font-size: 30px;
+      font-weight: 800;
+      color: var(--text-dark);
+      letter-spacing: -0.01em;
+      line-height: 1;
+    }
+    .product-card__price span { font-size: 14px; font-weight: 500; color: var(--text-mid); margin-left: 2px; }
+    .product-card__price-tax  { font-size: 12px; color: var(--text-light); margin-top: 3px; }
+    .product-card__qty        { font-size: 12px; color: var(--text-mid); text-align: right; line-height: 1.6; }
+    .product-card__cta {
+      display: block;
+      width: 100%;
+      padding: 16px 0;
+      border-radius: 10px;
+      font-family: "Noto Serif JP", serif;
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-align: center;
+      border: none;
+      background: linear-gradient(135deg, var(--gold-deep) 0%, var(--gold) 100%);
+      color: var(--white);
+      transition: all 0.25s;
+    }
+    .product-card__cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(200,168,101,0.45);
+      filter: brightness(1.07);
+    }
+
+    /* Noshi */
+    .noshi { text-align: center; margin: 40px auto 0; max-width: 900px; }
+    .noshi__caption { font-size: 13px; color: var(--text-light); margin-bottom: 12px; letter-spacing: 0.06em; }
+    .noshi__img { max-width: 380px; width: 100%; border-radius: 10px; box-shadow: 0 4px 24px rgba(44,36,24,0.08); margin: 0 auto; }
+
+    /* Lineup Note / CTA Banner */
+    .lineup-note {
+      max-width: 900px;
+      margin: 48px auto 0;
+      background: linear-gradient(160deg, #12301f 0%, #0e2218 55%, #1a3a2a 100%);
+      border-radius: 20px;
+      padding: 56px 32px 52px;
+      text-align: center;
+      border: 1px solid rgba(200,168,101,0.35);
+      box-shadow: 0 12px 48px rgba(0,0,0,0.22);
+    }
+    .lineup-note__eyecatch {
+      display: inline-block;
+      background: rgba(200,168,101,0.22);
+      border: 1px solid rgba(200,168,101,0.5);
+      color: var(--gold-light);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      padding: 5px 18px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+    }
+    .lineup-note__headline {
+      font-family: "M PLUS 1", sans-serif;
+      font-size: clamp(44px, 8vw, 72px);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 20px;
+      letter-spacing: -0.01em;
+    }
+    .lineup-note__headline em { font-style: normal; color: var(--gold-light); }
+    .lineup-note__period {
+      font-family: "Noto Serif JP", serif;
+      font-size: 15px;
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 6px;
+      letter-spacing: 0.05em;
+    }
+    .lineup-note__cond { font-size: 12px; color: rgba(255,255,255,0.45); margin-bottom: 40px; }
+    .lineup-note__cta {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+      background: linear-gradient(135deg, var(--gold-deep), var(--gold));
+      color: var(--white) !important;
+      padding: 22px 72px;
+      border-radius: 50px;
+      transition: all 0.3s;
+      box-shadow: 0 8px 32px rgba(200,168,101,0.5);
+      animation: ctaPulse 2.4s 2s infinite;
+      min-width: 280px;
+    }
+    .lineup-note__cta-main {
+      font-family: "M PLUS 1", sans-serif;
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      color: var(--white) !important;
+    }
+    .lineup-note__cta-sub { font-size: 12px; opacity: 0.8; letter-spacing: 0.08em; color: var(--white) !important; }
+    .lineup-note__cta:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(200,168,101,0.65); animation: none; }
+
+    /* Animations */
+    @keyframes heroFadeUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: none; } }
+    @keyframes badgeShimmer { to { left: 130%; } }
+    @keyframes ctaPulse   { 0%, 100% { box-shadow: 0 6px 24px rgba(200,168,101,0.45); } 50% { box-shadow: 0 6px 36px rgba(200,168,101,0.7); } }
+
+    /* Responsive */
+    @media (min-width: 900px) {
+      .product-grid { grid-template-columns: repeat(3, 1fr); gap: 28px; }
+    }
+    @media (max-width: 640px) {
+      .commitment-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      .product-grid         { gap: 14px; }
+      .product-card__body   { padding: 14px; }
+      .product-card__name   { font-size: 14px; }
+      .product-card__price  { font-size: 24px; }
+      .product-card__cta    { font-size: 14px; padding: 14px 0; }
+
+      .carousel__btn        { display: none; }
+      .early-bird__inner    { flex-wrap: wrap; padding: 12px 16px; gap: 8px; }
+      .early-bird__sep      { display: none; }
+    }
+    @media (max-width: 360px) {
+      .product-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Early Bird Bar -->
+  <div class="early-bird">
+    <div class="early-bird__inner">
+      <div class="early-bird__col">
+        <span class="early-bird__label">早期ご注文特典</span>
+        <div class="early-bird__deal"><em>500円</em> OFF</div>
+      </div>
+      <div class="early-bird__sep"></div>
+      <div class="early-bird__col early-bird__col--center">
+        <div class="early-bird__period">⏰ <strong>7月15日（火）</strong>ご注文分まで</div>
+        <div class="early-bird__timer">残り <span class="early-bird__days">--</span> 日</div>
+      </div>
+      <div class="early-bird__sep"></div>
+      <div class="early-bird__col">
+        <div class="early-bird__cond-label">対象条件</div>
+        <div class="early-bird__cond">お届け先1ヶ所につき<br>税込3,000円以上のご注文</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero__inner">
+      <span class="hero__badge">2026 夏ギフト・お中元</span>
+      <h1 class="hero__title">
+        瀬戸内のフルーツ、四万十川の清流を<br>
+        <span>特別な夏ギフト</span>に仕上げました。
+      </h1>
+      <p class="hero__sub">早期ご注文で商品代金 <strong>500円OFF</strong> ／ 7月15日（火）まで</p>
+    </div>
+  </section>
+
+  <!-- Carousel -->
+  <section class="carousel-section">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-eyebrow">Gallery</span>
+        <h2 class="section-title">
+          つるりとなめらかな『瀬戸内ぜりぃ』<br>
+          清流が宿る『四万十水ようかん』<br>
+          この夏、大切な方への特別な贈りものに。
+        </h2>
+        <div class="section-rule"></div>
+      </div>
+      <div class="carousel fade-in" id="carousel">
+        <div class="carousel__track">
+          <div class="carousel__slide">
+            <img src="https://www.hatada-kuritaruto.jp/pic-labo/2026_natsu_image_02.jpg" alt="詰め合わせ全景" />
+            <div class="carousel__caption">
+              <span class="carousel__tag tag--seto">瀬戸内ぜりぃ</span>
+              <p>瀬戸内の太陽が育んだ厳選果実を<br>つるりとなめらかなゼリーに</p>
+            </div>
+          </div>
+          <div class="carousel__slide">
+            <img src="https://www.hatada-kuritaruto.jp/pic-labo/2026_natsu_image_03.jpg" alt="瀬戸内ぜりぃ 皿盛り" />
+            <div class="carousel__caption">
+              <span class="carousel__tag tag--seto">瀬戸内ぜりぃ</span>
+              <p>白桃・伊予柑・檸檬・岡山ピオーネ<br>産地にこだわった4フレーバー</p>
+            </div>
+          </div>
+          <div class="carousel__slide">
+            <img src="https://www.hatada-kuritaruto.jp/pic-labo/2026_natsu_image_04.jpg" alt="四万十水ようかん アップ" />
+            <div class="carousel__caption">
+              <span class="carousel__tag tag--shimanto">四万十水ようかん</span>
+              <p>日本最後の清流・四万十川源流水が宿る<br>澄んだ清涼感と上品な甘み</p>
+            </div>
+          </div>
+          <div class="carousel__slide">
+            <img src="https://www.hatada-kuritaruto.jp/pic-labo/2026_natsu_image_05.jpg" alt="四万十水ようかん フレーバー" />
+            <div class="carousel__caption">
+              <span class="carousel__tag tag--shimanto">四万十水ようかん</span>
+              <p>ねり・小倉・抹茶の3フレーバー<br>なめらかな口どけと清流の風味</p>
+            </div>
+          </div>
+          <div class="carousel__slide">
+            <img src="https://www.hatada-kuritaruto.jp/pic-labo/2026_natsu_image_06.jpg" alt="四万十水ようかん 皿盛り" />
+            <div class="carousel__caption">
+              <span class="carousel__tag tag--mix">詰め合わせ</span>
+              <p>瀬戸内ぜりぃ＋四万十水ようかん<br>ふたつの個性が贈り物を彩る</p>
+            </div>
+          </div>
+        </div>
+        <button class="carousel__btn carousel__btn--prev" aria-label="前のスライドへ">‹</button>
+        <button class="carousel__btn carousel__btn--next" aria-label="次のスライドへ">›</button>
+      </div>
+      <div class="carousel__dots" id="carouselDots"></div>
+    </div>
+  </section>
+
+  <!-- Commitment -->
+  <section class="commitment-section">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-eyebrow">Commitment</span>
+        <h2 class="section-title">商品のこだわり</h2>
+        <div class="section-rule"></div>
+      </div>
+      <div class="commitment-grid fade-in">
+        <div>
+          <img src="https://www.hatada-kuritaruto.jp/pic-labo/llimg/2026_natsu_ilust01.jpg" loading="lazy" alt="瀬戸内ぜりぃ" class="commitment-item__img" />
+          <h3 class="commitment-item__title">瀬戸内ぜりぃ</h3>
+          <div class="section-rule section-rule--left"></div>
+          <p class="commitment-item__text">瀬戸内の陽光をたっぷり浴びて育った果実の味わいを、そのままゼリーに閉じ込めました。素材にこだわり、選び抜いたのは「伊予柑」「白桃」「岡山ピオーネ」「瀬戸内檸檬」。いずれも瀬戸内を代表する果実です。この地域で90年以上にわたりお菓子づくりを続けてきたハタダが、自信をもってお届けするこだわりのフルーツゼリーです。</p>
+        </div>
+        <div>
+          <img src="https://www.hatada-kuritaruto.jp/pic-labo/llimg/2026_natsu_ilust02.jpg" loading="lazy" alt="四万十水ようかん" class="commitment-item__img" />
+          <h3 class="commitment-item__title">四万十水ようかん</h3>
+          <div class="section-rule section-rule--left"></div>
+          <p class="commitment-item__text">日本最後の清流とも称される、高知・四万十川。その上流域は、冬には深い雪に覆われ、春の雪解けとともに清らかな水をたたえます。源流域から汲み上げた水と、北海道産小豆を使用し、上品でみずみずしい水ようかんに仕立てました。涼を贈る夏のご挨拶にふさわしい、季節限定の一品です。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lineup -->
+  <section class="lineup-section">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-eyebrow">Products</span>
+        <h2 class="section-title">詰め合わせいろいろ</h2>
+        <div class="section-rule"></div>
+      </div>
+      <div class="filter-tabs fade-in" id="filterTabs">
+        <button class="filter-tab" data-filter="all"      data-active="all">すべて</button>
+        <button class="filter-tab" data-filter="seto"                      >瀬戸内ぜりぃ</button>
+        <button class="filter-tab" data-filter="shimanto"                  >四万十水ようかん</button>
+        <button class="filter-tab" data-filter="mix"                       >詰め合わせ</button>
+      </div>
+      <div class="product-grid" id="productGrid"></div>
+      <div class="noshi">
+        <p class="noshi__caption">熨斗（のし）・包装紙のイメージです</p>
+        <img class="noshi__img" src="https://www.hatada-kuritaruto.jp/pic-labo/llimg/noshi2026.jpg" alt="熨斗・包装紙イメージ" />
+      </div>
+      <div class="lineup-note fade-in">
+        <div class="lineup-note__eyecatch">早期ご注文特典</div>
+        <div class="lineup-note__headline">今すぐ <em>500円</em> OFF</div>
+        <div class="lineup-note__period">⏰ 7月15日（火）ご注文分まで</div>
+        <div class="lineup-note__cond">お届け先1ヶ所につき税込3,000円以上が対象</div>
+        <a class="lineup-note__cta" href="##URL_ORDER##">
+          <span class="lineup-note__cta-main">夏ギフトを贈る →</span>
+          <span class="lineup-note__cta-sub">カートに進む</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <script>
+  (function () {
+    'use strict';
+
+    const IMG_BASE = 'https://www.hatada-kuritaruto.jp/pic-labo/llimg/2026_natsu_kirinuki_';
+
+    const PRODUCTS = [
+      { cat: 'seto',     name: '瀬戸内ぜりぃ\n4個入',   price: 1600, qty: '4個入',  img: '01', contents: '瀬戸内檸檬×1　白桃×1　伊予柑×1　岡山ピオーネ×1',             url: '##URL_SETO_4##'  },
+      { cat: 'seto',     name: '瀬戸内ぜりぃ\n6個入',   price: 2400, qty: '6個入',  img: '02', contents: '瀬戸内檸檬×2　白桃×1　伊予柑×2　岡山ピオーネ×1',             url: '##URL_SETO_6##'  },
+      { cat: 'seto',     name: '瀬戸内ぜりぃ\n9個入',   price: 3600, qty: '9個入',  img: '03', contents: '瀬戸内檸檬×2　白桃×2　伊予柑×3　岡山ピオーネ×2',             url: '##URL_SETO_9##'  },
+      { cat: 'seto',     name: '瀬戸内ぜりぃ\n12個入',  price: 4800, qty: '12個入', img: '04', contents: '瀬戸内檸檬×3　白桃×3　伊予柑×3　岡山ピオーネ×3',             url: '##URL_SETO_12##' },
+      { cat: 'seto',     name: '瀬戸内ぜりぃ\n16個入',  price: 6400, qty: '16個入', img: '05', contents: '瀬戸内檸檬×4　白桃×4　伊予柑×4　岡山ピオーネ×4',             url: '##URL_SETO_16##' },
+      { cat: 'shimanto', name: '四万十水ようかん\n4個入',  price: 1600, qty: '4個入',  img: '06', contents: 'ねり×2　小倉×1　抹茶×1',                                    url: '##URL_SHIM_4##'  },
+      { cat: 'shimanto', name: '四万十水ようかん\n6個入',  price: 2400, qty: '6個入',  img: '07', contents: 'ねり×2　小倉×2　抹茶×2',                                    url: '##URL_SHIM_6##'  },
+      { cat: 'shimanto', name: '四万十水ようかん\n9個入',  price: 3600, qty: '9個入',  img: '08', contents: 'ねり×3　小倉×3　抹茶×3',                                    url: '##URL_SHIM_9##'  },
+      { cat: 'shimanto', name: '四万十水ようかん\n12個入', price: 4800, qty: '12個入', img: '09', contents: 'ねり×4　小倉×4　抹茶×4',                                    url: '##URL_SHIM_12##' },
+      { cat: 'shimanto', name: '四万十水ようかん\n16個入', price: 6400, qty: '16個入', img: '10', contents: 'ねり×8　小倉×4　抹茶×4',                                    url: '##URL_SHIM_16##' },
+      { cat: 'mix', name: '瀬戸内ぜりぃ×四万十水ようかん\n4個入',  price: 1600, qty: '4個入',  img: '11', contents: 'ぜりぃ 瀬戸内檸檬×1 伊予柑×1　水ようかん ねり×1 抹茶×1',                               url: '##URL_MIX_4##'  },
+      { cat: 'mix', name: '瀬戸内ぜりぃ×四万十水ようかん\n6個入',  price: 2400, qty: '6個入',  img: '12', contents: 'ぜりぃ 瀬戸内檸檬×1 伊予柑×1 岡山ピオーネ×1　水ようかん ねり×1 小倉×1 抹茶×1',       url: '##URL_MIX_6##'  },
+      { cat: 'mix', name: '瀬戸内ぜりぃ×四万十水ようかん\n9個入',  price: 3600, qty: '9個入',  img: '13', contents: 'ぜりぃ 瀬戸内檸檬×2 白桃×1 伊予柑×2 岡山ピオーネ×1　水ようかん ねり×1 小倉×1 抹茶×1', url: '##URL_MIX_9##'  },
+      { cat: 'mix', name: '瀬戸内ぜりぃ×四万十水ようかん\n12個入', price: 4800, qty: '12個入', img: '14', contents: 'ぜりぃ 瀬戸内檸檬×2 白桃×2 伊予柑×2 岡山ピオーネ×2　水ようかん ねり×2 小倉×1 抹茶×1', url: '##URL_MIX_12##' },
+      { cat: 'mix', name: '瀬戸内ぜりぃ×四万十水ようかん\n16個入', price: 6400, qty: '16個入', img: '15', contents: 'ぜりぃ 瀬戸内檸檬×2 白桃×2 伊予柑×2 岡山ピオーネ×2　水ようかん ねり×4 小倉×2 抹茶×2', url: '##URL_MIX_16##' },
+    ];
+
+    const CAT_LABEL = { seto: '瀬戸内ぜりぃ', shimanto: '四万十水ようかん', mix: '詰め合わせ' };
+
+    let fadeObserver;
+
+    function renderProducts(filter) {
+      const grid = document.getElementById('productGrid');
+      grid.innerHTML = PRODUCTS
+        .filter(p => filter === 'all' || p.cat === filter)
+        .map(p => {
+          const [line1, line2] = p.name.split('\n');
+          return `
+            <div class="product-card fade-in">
+              <div class="product-card__img-wrap">
+                <img loading="lazy" src="${IMG_BASE}${p.img}.jpg" alt="${p.name.replace('\n', ' ')}" />
+                <span class="product-card__type type--${p.cat}">${CAT_LABEL[p.cat]}</span>
+              </div>
+              <div class="product-card__body">
+                <div class="product-card__name">${line2 ? `${line1}<br>${line2}` : line1}</div>
+                <div class="product-card__divider"></div>
+                <p class="product-card__contents">${p.contents}</p>
+                <div class="product-card__divider"></div>
+                <div class="product-card__price-row">
+                  <div>
+                    <div class="product-card__price">${p.price.toLocaleString()}<span>円</span></div>
+                    <div class="product-card__price-tax">税込</div>
+                  </div>
+                  <div class="product-card__qty">${p.qty}</div>
+                </div>
+                <a class="product-card__cta" href="${p.url}">カートに入れる →</a>
+              </div>
+            </div>`;
+        })
+        .join('');
+      if (fadeObserver) grid.querySelectorAll('.fade-in').forEach(el => fadeObserver.observe(el));
+    }
+
+    function initFilter() {
+      const tabs = document.querySelectorAll('.filter-tab');
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          tabs.forEach(t => delete t.dataset.active);
+          tab.dataset.active = tab.dataset.filter;
+          renderProducts(tab.dataset.filter);
+        });
+      });
+    }
+
+    function initCarousel() {
+      const root    = document.getElementById('carousel');
+      const track   = root.querySelector('.carousel__track');
+      const slides  = root.querySelectorAll('.carousel__slide');
+      const dotsEl  = document.getElementById('carouselDots');
+      const btnPrev = root.querySelector('.carousel__btn--prev');
+      const btnNext = root.querySelector('.carousel__btn--next');
+      if (!track || !slides.length) return;
+
+      let current = 0, timer;
+
+      function goTo(i) {
+        current = (i + slides.length) % slides.length;
+        track.style.transform = `translateX(-${current * 100}%)`;
+        dotsEl.querySelectorAll('.carousel__dot').forEach((d, j) => d.classList.toggle('is-active', j === current));
+      }
+
+      function startAuto() { timer = setInterval(() => goTo(current + 1), 4500); }
+      function resetAuto() { clearInterval(timer); startAuto(); }
+
+      slides.forEach((_, i) => {
+        const dot = document.createElement('button');
+        dot.className = 'carousel__dot' + (i === 0 ? ' is-active' : '');
+        dot.setAttribute('aria-label', `スライド ${i + 1}`);
+        dot.addEventListener('click', () => { goTo(i); resetAuto(); });
+        dotsEl.appendChild(dot);
+      });
+
+      btnPrev.addEventListener('click', () => { goTo(current - 1); resetAuto(); });
+      btnNext.addEventListener('click', () => { goTo(current + 1); resetAuto(); });
+      startAuto();
+    }
+
+    function initCountdown() {
+      const timerEl = document.querySelector('.early-bird__timer');
+      if (!timerEl) return;
+      const DEADLINE = new Date('2026-07-15T23:59:59');
+      function update() {
+        const diff  = DEADLINE - new Date();
+        if (diff <= 0) { timerEl.innerHTML = '残り <span class="early-bird__days">0</span> 日'; return; }
+        const days  = Math.floor(diff / 86400000);
+        const hours = Math.floor(diff / 3600000);
+        const unit  = days >= 1 ? `${days}</span> 日` : `${hours}</span> 時間`;
+        timerEl.innerHTML = `残り <span class="early-bird__days">${unit}`;
+      }
+      update();
+      setInterval(update, 60000);
+    }
+
+    function initFadeIn() {
+      if (!('IntersectionObserver' in window)) {
+        document.querySelectorAll('.fade-in').forEach(el => el.classList.add('is-visible'));
+        return;
+      }
+      fadeObserver = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting) { e.target.classList.add('is-visible'); fadeObserver.unobserve(e.target); }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -32px 0px' });
+      document.querySelectorAll('.fade-in').forEach(el => fadeObserver.observe(el));
+    }
+
+    function init() {
+      initFadeIn();
+      initCountdown();
+      initCarousel();
+      initFilter();
+      renderProducts('all');
+    }
+
+    document.readyState === 'loading' ? document.addEventListener('DOMContentLoaded', init) : init();
+  }());
+  </script>
+</body>
+</html>
