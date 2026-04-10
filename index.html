@@ -329,7 +329,17 @@
     }
 
     /* Filter tabs */
-    .filter-tabs { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; margin-bottom: 40px; }
+    .filter-group { max-width: 900px; margin: 0 auto 40px; display: flex; flex-direction: column; gap: 12px; }
+    .filter-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .filter-row__label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      color: var(--text-light);
+      white-space: nowrap;
+      min-width: 36px;
+    }
+    .filter-tabs { display: flex; gap: 8px; flex-wrap: wrap; }
     .filter-tab {
       font-family: "Noto Serif JP", serif;
       font-size: 13px;
@@ -342,11 +352,27 @@
       color: var(--text-mid);
       transition: all 0.25s;
     }
-    .filter-tab:hover,
-    .filter-tab[data-active="all"]      { background: var(--text-dark); border-color: var(--text-dark); color: var(--white); }
-    .filter-tab[data-active="seto"]     { background: var(--seto-deep); border-color: var(--seto-deep); color: var(--white); }
-    .filter-tab[data-active="shimanto"] { background: var(--shim-deep); border-color: var(--shim-deep); color: var(--white); }
-    .filter-tab[data-active="mix"]      { background: var(--gold-deep); border-color: var(--gold-deep); color: var(--white); }
+    .filter-tab:hover { opacity: 0.75; }
+
+    /* Category active states */
+    .filter-tab--cat[data-active="all"]      { background: var(--text-dark); border-color: var(--text-dark); color: var(--white); }
+    .filter-tab--cat[data-active="seto"]     { background: var(--seto-deep); border-color: var(--seto-deep); color: var(--white); }
+    .filter-tab--cat[data-active="shimanto"] { background: var(--shim-deep); border-color: var(--shim-deep); color: var(--white); }
+    .filter-tab--cat[data-active="mix"]      { background: var(--gold-deep); border-color: var(--gold-deep); color: var(--white); }
+
+    /* Price active state */
+    .filter-tab--price[data-active] { background: var(--seto-deep); border-color: var(--seto-deep); color: var(--white); }
+
+    /* No results */
+    .filter-empty {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 48px 0;
+      font-family: "Noto Serif JP", serif;
+      font-size: 15px;
+      color: var(--text-light);
+      letter-spacing: 0.08em;
+    }
 
     /* Product grid */
     .product-grid {
@@ -684,11 +710,27 @@
         <h2 class="section-title">詰め合わせいろいろ</h2>
         <div class="section-rule"></div>
       </div>
-      <div class="filter-tabs fade-in" id="filterTabs">
-        <button class="filter-tab" data-filter="all"      data-active="all">すべて</button>
-        <button class="filter-tab" data-filter="seto"                      >瀬戸内ぜりぃ</button>
-        <button class="filter-tab" data-filter="shimanto"                  >四万十水ようかん</button>
-        <button class="filter-tab" data-filter="mix"                       >詰め合わせ</button>
+      <div class="filter-group fade-in" id="filterGroup">
+        <div class="filter-row">
+          <span class="filter-row__label">種類</span>
+          <div class="filter-tabs" id="filterCat">
+            <button class="filter-tab filter-tab--cat" data-filter="all"      data-active="all">すべて</button>
+            <button class="filter-tab filter-tab--cat" data-filter="seto"                      >瀬戸内ぜりぃ</button>
+            <button class="filter-tab filter-tab--cat" data-filter="shimanto"                  >四万十水ようかん</button>
+            <button class="filter-tab filter-tab--cat" data-filter="mix"                       >詰め合わせ</button>
+          </div>
+        </div>
+        <div class="filter-row">
+          <span class="filter-row__label">価格</span>
+          <div class="filter-tabs" id="filterPrice">
+            <button class="filter-tab filter-tab--price" data-price="all"  data-active="all">すべて</button>
+            <button class="filter-tab filter-tab--price" data-price="1600"                  >1,600円</button>
+            <button class="filter-tab filter-tab--price" data-price="2400"                  >2,400円</button>
+            <button class="filter-tab filter-tab--price" data-price="3600"                  >3,600円</button>
+            <button class="filter-tab filter-tab--price" data-price="4800"                  >4,800円</button>
+            <button class="filter-tab filter-tab--price" data-price="6400"                  >6,400円</button>
+          </div>
+        </div>
       </div>
       <div class="product-grid" id="productGrid"></div>
       <div class="noshi">
@@ -736,11 +778,21 @@
 
     let fadeObserver;
 
-    function renderProducts(filter) {
+    let activeCat   = 'all';
+    let activePrice = 'all';
+
+    function renderProducts() {
       const grid = document.getElementById('productGrid');
-      grid.innerHTML = PRODUCTS
-        .filter(p => filter === 'all' || p.cat === filter)
-        .map(p => {
+      const filtered = PRODUCTS.filter(p => {
+        const catOk   = activeCat   === 'all' || p.cat === activeCat;
+        const priceOk = activePrice === 'all' || p.price === Number(activePrice);
+        return catOk && priceOk;
+      });
+      if (!filtered.length) {
+        grid.innerHTML = '<div class="filter-empty">該当する商品がありません</div>';
+        return;
+      }
+      grid.innerHTML = filtered.map(p => {
           const [line1, line2] = p.name.split('\n');
           return `
             <div class="product-card fade-in">
@@ -769,12 +821,24 @@
     }
 
     function initFilter() {
-      const tabs = document.querySelectorAll('.filter-tab');
-      tabs.forEach(tab => {
+      const catTabs   = document.querySelectorAll('.filter-tab--cat');
+      const priceTabs = document.querySelectorAll('.filter-tab--price');
+
+      catTabs.forEach(tab => {
         tab.addEventListener('click', () => {
-          tabs.forEach(t => delete t.dataset.active);
+          catTabs.forEach(t => delete t.dataset.active);
           tab.dataset.active = tab.dataset.filter;
-          renderProducts(tab.dataset.filter);
+          activeCat = tab.dataset.filter;
+          renderProducts();
+        });
+      });
+
+      priceTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          priceTabs.forEach(t => delete t.dataset.active);
+          tab.dataset.active = tab.dataset.price;
+          activePrice = tab.dataset.price;
+          renderProducts();
         });
       });
     }
@@ -846,7 +910,7 @@
       initCountdown();
       initCarousel();
       initFilter();
-      renderProducts('all');
+      renderProducts();
     }
 
     document.readyState === 'loading' ? document.addEventListener('DOMContentLoaded', init) : init();
