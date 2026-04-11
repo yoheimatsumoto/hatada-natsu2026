@@ -17,8 +17,8 @@
       --gold-deep:  #9e7c3a;
       --cream:      #faf7f2;
       --cream-dark: #f2ede4;
-      --dark-bg:    #16231a;
-      --dark-deep:  #0d1a12;
+      --dark-bg:    #0b1e30;
+      --dark-deep:  #071525;
       --text-dark:  #2c2418;
       --text-mid:   #5a4f3e;
       --text-light: #8a7f72;
@@ -83,7 +83,7 @@
     /* Early Bird Bar */
     /* ------------------------------------------------------------------ */
     .early-bird {
-      background: linear-gradient(135deg, #0d2218 0%, #1a3a2a 50%, #0d2218 100%);
+      background: linear-gradient(135deg, #071525 0%, #0e2d4a 50%, #071525 100%);
       color: var(--white);
       border-bottom: 2px solid rgba(200, 168, 101, 0.4);
     }
@@ -155,7 +155,7 @@
     .hero {
       position: relative;
       min-height: 300px;
-      background: linear-gradient(160deg, #b8ddf2 0%, #daeef8 30%, #f0ece0 65%, #e4d8bc 100%);
+      background: linear-gradient(160deg, #9dcff0 0%, #c2e8f8 30%, #e4f4fb 55%, #f0ece0 78%, #e8dfc8 100%);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -168,10 +168,34 @@
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(ellipse 60% 40% at 20% 50%, rgba(91,164,200,0.18) 0%, transparent 70%),
-        radial-gradient(ellipse 50% 60% at 80% 30%, rgba(200,168,101,0.12) 0%, transparent 70%);
+        radial-gradient(ellipse 65% 50% at 15% 60%, rgba(91,164,200,0.28) 0%, transparent 65%),
+        radial-gradient(ellipse 55% 45% at 85% 25%, rgba(200,168,101,0.14) 0%, transparent 65%),
+        radial-gradient(ellipse 40% 60% at 60% 90%, rgba(100,190,220,0.18) 0%, transparent 70%);
     }
-    .hero__inner { position: relative; z-index: 1; width: 100%; }
+    .hero::after {
+      content: "";
+      position: absolute;
+      bottom: -1px; left: 0; right: 0;
+      height: 72px;
+      background: url("data:image/svg+xml,%3Csvg viewBox='0 0 1440 72' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'%3E%3Cpath d='M0,36 C180,72 360,0 540,36 C720,72 900,0 1080,36 C1260,72 1350,18 1440,36 L1440,72 L0,72 Z' fill='%230b1e30'/%3E%3C/svg%3E");
+      background-size: cover;
+      z-index: 2;
+    }
+
+    /* Water drop decorations */
+    .hero__drops { position: absolute; inset: 0; pointer-events: none; overflow: hidden; z-index: 1; }
+    .hero__drop {
+      position: absolute;
+      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+      background: radial-gradient(ellipse at 35% 30%, rgba(255,255,255,0.82), rgba(180,225,248,0.35));
+      box-shadow: inset 1px 1px 2px rgba(255,255,255,0.6), inset -1px -1px 2px rgba(100,170,220,0.3);
+      animation: dropFloat var(--dur, 8s) var(--delay, 0s) ease-in-out infinite;
+    }
+    @keyframes dropFloat {
+      0%, 100% { transform: translateY(0) scale(1);    opacity: var(--op, 0.5); }
+      50%       { transform: translateY(-10px) scale(1.06); opacity: calc(var(--op, 0.5) + 0.12); }
+    }
+    .hero__inner { position: relative; z-index: 3; width: 100%; }
     .hero__badge {
       display: inline-block;
       position: relative;
@@ -197,10 +221,10 @@
     }
     .hero__title {
       font-family: "Zen Antique Soft", "Noto Serif JP", serif;
-      font-size: clamp(17px, 2.9vw, 32px) !important;
+      font-size: clamp(17px, 2.9vw, 32px);
       font-weight: 400;
       letter-spacing: 0.01em;
-      line-height: 1.7 !important;
+      line-height: 1.7;
       color: var(--text-dark);
       margin-bottom: 8px;
       animation: heroFadeUp 1.1s var(--ease-expo) both;
@@ -222,6 +246,56 @@
       animation: heroFadeUp 1.3s 0.2s var(--ease-expo) both;
     }
     .hero__sub strong { color: var(--seto-deep); }
+
+    /* Product image decoration in hero */
+    .hero__images {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+      overflow: hidden;
+    }
+    .hero__img-deco {
+      position: absolute;
+      mix-blend-mode: multiply;
+      animation: decoFloat var(--dur, 10s) var(--delay, 0s) ease-in-out infinite;
+      filter: drop-shadow(0 8px 28px rgba(44,90,140,0.18));
+    }
+    .hero__img-deco--left {
+      width: clamp(160px, 25vw, 300px);
+      bottom: -10%;
+      left: -4%;
+      transform-origin: bottom center;
+      mask-image: linear-gradient(to right, transparent 0%, black 25%),
+                  linear-gradient(to top, transparent 0%, black 22%);
+      mask-composite: intersect;
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 25%),
+                          linear-gradient(to top, transparent 0%, black 22%);
+      -webkit-mask-composite: source-in;
+    }
+    .hero__img-deco--right {
+      width: clamp(150px, 23vw, 280px);
+      bottom: -8%;
+      right: -3%;
+      transform-origin: bottom center;
+      mask-image: linear-gradient(to left, transparent 0%, black 25%),
+                  linear-gradient(to top, transparent 0%, black 22%);
+      mask-composite: intersect;
+      -webkit-mask-image: linear-gradient(to left, transparent 0%, black 25%),
+                          linear-gradient(to top, transparent 0%, black 22%);
+      -webkit-mask-composite: source-in;
+    }
+    @keyframes decoFloat {
+      0%, 100% { transform: translateY(0) rotate(var(--rot-a, -3deg)) scale(1); }
+      50%       { transform: translateY(-9px) rotate(var(--rot-b, 1deg)) scale(1.02); }
+    }
+    @media (max-width: 480px) {
+      .hero__img-deco--left  { width: 110px; left: -8%; }
+      .hero__img-deco--right { width: 100px; right: -8%; }
+    }
+    @media (max-width: 360px) {
+      .hero__img-deco { display: none; }
+    }
 
     /* ------------------------------------------------------------------ */
     /* Carousel */
@@ -476,7 +550,7 @@
     .lineup-note {
       max-width: 900px;
       margin: 48px auto 0;
-      background: linear-gradient(160deg, #12301f 0%, #0e2218 55%, #1a3a2a 100%);
+      background: linear-gradient(160deg, #0a1e34 0%, #071525 55%, #0e2d4a 100%);
       border-radius: 20px;
       padding: 56px 32px 52px;
       text-align: center;
@@ -584,6 +658,105 @@
     @media (max-width: 360px) {
       .product-grid { grid-template-columns: 1fr; }
     }
+
+    /* ------------------------------------------------------------------ */
+    /* Wave divider */
+    /* ------------------------------------------------------------------ */
+    .wave-divider {
+      display: block;
+      line-height: 0;
+      margin-top: -2px;
+      background: var(--cream-dark);
+    }
+    .wave-divider svg { display: block; width: 100%; height: 48px; }
+
+    /* ------------------------------------------------------------------ */
+    /* Popular badge */
+    /* ------------------------------------------------------------------ */
+    .product-card__badge {
+      position: absolute;
+      top: 10px; right: 10px;
+      background: linear-gradient(135deg, #d14b2a 0%, #c03848 100%);
+      color: var(--white);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      padding: 3px 11px;
+      border-radius: 20px;
+      z-index: 3;
+      box-shadow: 0 2px 8px rgba(193,56,72,0.4);
+    }
+
+    /* ------------------------------------------------------------------ */
+    /* Commitment hover */
+    /* ------------------------------------------------------------------ */
+    .commitment-item__img {
+      transition: transform 0.45s var(--ease-expo), box-shadow 0.45s;
+    }
+    .commitment-item__img:hover {
+      transform: scale(1.025) translateY(-3px);
+      box-shadow: 0 10px 36px rgba(44,36,24,0.18);
+    }
+
+    /* ------------------------------------------------------------------ */
+    /* Sticky Mobile CTA */
+    /* ------------------------------------------------------------------ */
+    .sticky-order {
+      display: none;
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      z-index: 200;
+      padding: 10px 16px 20px;
+      background: linear-gradient(0deg, rgba(7,21,37,0.97) 0%, rgba(7,21,37,0.88) 100%);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-top: 1px solid rgba(200,168,101,0.28);
+    }
+    .sticky-order__btn {
+      display: block;
+      width: 100%;
+      padding: 15px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--gold-deep) 0%, var(--gold) 100%);
+      color: var(--white);
+      font-family: "Noto Serif JP", serif;
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(200,168,101,0.45);
+      transition: filter 0.25s, box-shadow 0.25s;
+    }
+    .sticky-order__btn:hover { filter: brightness(1.08); box-shadow: 0 6px 28px rgba(200,168,101,0.6); }
+
+    /* ------------------------------------------------------------------ */
+    /* Back to Top */
+    /* ------------------------------------------------------------------ */
+    .back-top {
+      position: fixed;
+      right: 20px; bottom: 28px;
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: var(--seto-deep);
+      color: var(--white);
+      border: none;
+      font-size: 20px;
+      line-height: 1;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 16px rgba(45,107,158,0.4);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s, transform 0.3s;
+      z-index: 199;
+    }
+    .back-top.is-visible { opacity: 1; pointer-events: auto; }
+    .back-top:hover { transform: translateY(-3px); }
+
+    @media (max-width: 640px) {
+      .sticky-order   { display: block; }
+      body            { padding-bottom: 76px; }
+      .back-top       { bottom: 96px; }
+    }
   </style>
 </head>
 <body>
@@ -610,6 +783,24 @@
 
   <!-- Hero -->
   <section class="hero">
+    <div class="hero__images" aria-hidden="true">
+      <img class="hero__img-deco hero__img-deco--left"
+           src="https://www.hatada-kuritaruto.jp/pic-labo/llimg/2026_natsu_ilust01.jpg"
+           alt=""
+           style="opacity:0.82;--dur:9s;--delay:0s;--rot-a:-5deg;--rot-b:-1deg" />
+      <img class="hero__img-deco hero__img-deco--right"
+           src="https://www.hatada-kuritaruto.jp/pic-labo/llimg/2026_natsu_ilust02.jpg"
+           alt=""
+           style="opacity:0.78;--dur:11s;--delay:1.6s;--rot-a:4deg;--rot-b:8deg" />
+    </div>
+    <div class="hero__drops" aria-hidden="true">
+      <span class="hero__drop" style="width:8px;height:11px;top:20%;left:9%;--dur:8s;--delay:0.3s;--op:0.5"></span>
+      <span class="hero__drop" style="width:5px;height:7px;top:38%;left:22%;--dur:6.5s;--delay:1.4s;--op:0.4"></span>
+      <span class="hero__drop" style="width:10px;height:14px;top:16%;right:11%;--dur:9s;--delay:0.1s;--op:0.45"></span>
+      <span class="hero__drop" style="width:6px;height:8px;top:58%;right:20%;--dur:7.5s;--delay:2s;--op:0.35"></span>
+      <span class="hero__drop" style="width:7px;height:10px;top:44%;left:48%;--dur:10s;--delay:0.9s;--op:0.3"></span>
+      <span class="hero__drop" style="width:4px;height:6px;top:28%;right:38%;--dur:7s;--delay:3s;--op:0.38"></span>
+    </div>
     <div class="hero__inner">
       <span class="hero__badge">2026 夏ギフト・お中元</span>
       <h1 class="hero__title">
@@ -619,6 +810,13 @@
       <p class="hero__sub">早期ご注文で商品代金 <strong>500円OFF</strong> ／ 7月15日（火）まで</p>
     </div>
   </section>
+
+  <!-- Wave -->
+  <div class="wave-divider" aria-hidden="true">
+    <svg viewBox="0 0 1440 48" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0,24 C180,48 360,0 540,24 C720,48 900,0 1080,24 C1260,48 1350,12 1440,24 L1440,48 L0,48 Z" fill="#0b1e30"/>
+    </svg>
+  </div>
 
   <!-- Carousel -->
   <section class="carousel-section">
@@ -750,6 +948,14 @@
     </div>
   </section>
 
+  <!-- Sticky Mobile CTA -->
+  <div class="sticky-order">
+    <a class="sticky-order__btn" href="##URL_ORDER##">夏ギフトを注文する →</a>
+  </div>
+
+  <!-- Back to Top -->
+  <button class="back-top" id="backTop" aria-label="ページトップへ">↑</button>
+
   <script>
   (function () {
     'use strict';
@@ -794,16 +1000,19 @@
       }
       grid.innerHTML = filtered.map(p => {
           const [line1, line2] = p.name.split('\n');
+          const isPopular = p.price === 3600;
+          const formattedContents = p.contents.replace(/\u3000/g, '<br>');
           return `
             <div class="product-card fade-in">
               <div class="product-card__img-wrap">
                 <img loading="lazy" src="${IMG_BASE}${p.img}.jpg" alt="${p.name.replace('\n', ' ')}" />
                 <span class="product-card__type type--${p.cat}">${CAT_LABEL[p.cat]}</span>
+                ${isPopular ? '<span class="product-card__badge">人　気</span>' : ''}
               </div>
               <div class="product-card__body">
                 <div class="product-card__name">${line2 ? `${line1}<br>${line2}` : line1}</div>
                 <div class="product-card__divider"></div>
-                <p class="product-card__contents">${p.contents}</p>
+                <p class="product-card__contents">${formattedContents}</p>
                 <div class="product-card__divider"></div>
                 <div class="product-card__price-row">
                   <div>
@@ -873,6 +1082,15 @@
 
       btnPrev.addEventListener('click', () => { goTo(current - 1); resetAuto(); });
       btnNext.addEventListener('click', () => { goTo(current + 1); resetAuto(); });
+
+      // Touch / swipe support
+      let touchStartX = 0;
+      root.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+      root.addEventListener('touchend', e => {
+        const dx = touchStartX - e.changedTouches[0].clientX;
+        if (Math.abs(dx) > 45) { goTo(current + (dx > 0 ? 1 : -1)); resetAuto(); }
+      }, { passive: true });
+
       startAuto();
     }
 
@@ -905,12 +1123,22 @@
       document.querySelectorAll('.fade-in').forEach(el => fadeObserver.observe(el));
     }
 
+    function initBackToTop() {
+      const btn = document.getElementById('backTop');
+      if (!btn) return;
+      window.addEventListener('scroll', () => {
+        btn.classList.toggle('is-visible', window.scrollY > 400);
+      }, { passive: true });
+      btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    }
+
     function init() {
       initFadeIn();
       initCountdown();
       initCarousel();
       initFilter();
       renderProducts();
+      initBackToTop();
     }
 
     document.readyState === 'loading' ? document.addEventListener('DOMContentLoaded', init) : init();
