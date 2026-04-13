@@ -196,17 +196,18 @@
       opacity: 0.7;
     }
 
-    /* Color orbs — より濃く・ブラーを絞る */
-    .hero__orb {
+    /* Ripple rings — 水面の波紋：拡大しながらフェードアウト */
+    .hero__ring {
       position: absolute;
       border-radius: 50%;
-      filter: blur(var(--blur, 48px));
-      animation: orbDrift var(--dur, 14s) var(--delay, 0s) ease-in-out infinite;
+      border: 2px solid var(--ring-color, rgba(91, 164, 200, 0.7));
+      box-shadow: 0 0 12px var(--ring-glow, rgba(91, 164, 200, 0.3));
+      animation: ringRipple var(--dur, 5s) var(--delay, 0s) ease-out infinite;
     }
-    @keyframes orbDrift {
-      0%, 100% { transform: translate(0, 0) scale(1); }
-      33%  { transform: translate(var(--tx1, 20px), var(--ty1, -16px)) scale(1.1); }
-      66%  { transform: translate(var(--tx2, -14px), var(--ty2, 10px)) scale(0.93); }
+    @keyframes ringRipple {
+      0%   { transform: scale(0.25); opacity: 0.9; }
+      60%  { opacity: 0.3; }
+      100% { transform: scale(1.9); opacity: 0; }
     }
 
     /* Floating particles — グロー付きで大きく */
@@ -223,19 +224,30 @@
     }
 
     .hero__inner { position: relative; z-index: 3; width: 100%; }
+
+    /* ShopServe対策: ヒーロー内テキストのmargin/paddingをゼロリセット */
+    .hero__inner h1,
+    .hero__inner p,
+    .hero__inner span,
+    .hero__inner strong {
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+
     .hero__badge {
-      display: inline-block;
+      display: inline-block !important;
       position: relative;
       overflow: hidden;
       background: linear-gradient(135deg, var(--seto-blue), var(--seto-deep));
-      color: var(--white);
-      font-family: "Noto Serif JP", serif;
-      font-size: 22px;
-      font-weight: 700;
-      letter-spacing: 0.2em;
-      padding: 14px 40px;
-      border-radius: 36px;
-      margin-bottom: 24px;
+      color: var(--white) !important;
+      font-family: "Noto Serif JP", sans-serif !important;
+      font-size: 22px !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.2em !important;
+      padding: 14px 40px !important;
+      border-radius: 36px !important;
+      margin-bottom: 24px !important;
+      line-height: 1 !important;
       box-shadow: 0 4px 20px rgba(45,107,158,0.32);
       animation: heroFadeUp 0.9s 0.05s var(--ease-expo) both;
     }
@@ -247,32 +259,41 @@
       animation: badgeShimmer 3.5s 1s infinite;
     }
     .hero__title {
-      font-family: "Zen Antique Soft", "Noto Serif JP", serif;
-      font-size: clamp(17px, 2.9vw, 32px);
-      font-weight: 400;
-      letter-spacing: 0.01em;
-      line-height: 1.7;
-      color: var(--text-dark);
-      margin-bottom: 8px;
+      font-family: "Zen Antique Soft", "Noto Serif JP", sans-serif !important;
+      font-size: clamp(17px, 2.9vw, 32px) !important;
+      font-weight: 400 !important;
+      letter-spacing: 0.01em !important;
+      line-height: 1 !important;        /* <br>ではなくspanで折り返すためline-heightは1に */
+      color: var(--text-dark) !important;
+      margin-bottom: 16px !important;
       animation: heroFadeUp 1.1s var(--ease-expo) both;
     }
-    .hero__title span {
-      color: #1a3060;
-      display: inline-block;
-      position: relative;
-      font-size: 1.12em;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-      padding: 0 2px;
+    /* 1行ずつ <span class="hero__title__row"> で折り返し制御 */
+    .hero__title__row {
+      display: block !important;
+      line-height: 1.75 !important;    /* 各行の行間はここで制御 */
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+    .hero__title__accent {
+      color: #1a3060 !important;
+      display: inline !important;
+      font-size: 1.12em !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.05em !important;
     }
     .hero__sub {
-      font-family: "Noto Serif JP", serif;
-      font-size: clamp(13px, 2vw, 16px);
-      color: var(--text-mid);
-      letter-spacing: 0.06em;
+      display: block !important;
+      font-family: "Noto Serif JP", sans-serif !important;
+      font-size: clamp(13px, 2vw, 16px) !important;
+      line-height: 1.8 !important;
+      color: var(--text-mid) !important;
+      letter-spacing: 0.06em !important;
+      margin-bottom: 0 !important;
       animation: heroFadeUp 1.3s 0.2s var(--ease-expo) both;
     }
-    .hero__sub strong { color: var(--seto-deep); }
+    .hero__sub + .hero__sub { margin-top: 6px !important; }
+    .hero__sub strong { color: var(--seto-deep) !important; font-weight: 700 !important; }
 
 
     /* ------------------------------------------------------------------ */
@@ -969,10 +990,12 @@
     <div class="hero__deco" aria-hidden="true">
       <!-- Dot grid -->
       <div class="hero__dots"></div>
-      <!-- Color orbs — 色・透明度を強化 -->
-      <div class="hero__orb" style="width:380px;height:380px;background:var(--seto-blue);opacity:0.28;top:-110px;left:-90px;--blur:52px;--dur:16s;--tx1:26px;--ty1:-18px;--tx2:-15px;--ty2:22px"></div>
-      <div class="hero__orb" style="width:260px;height:260px;background:var(--gold);opacity:0.24;top:-40px;right:-70px;--blur:44px;--dur:12s;--delay:2s;--tx1:-20px;--ty1:14px;--tx2:18px;--ty2:-16px"></div>
-      <div class="hero__orb" style="width:200px;height:200px;background:var(--shim-deep);opacity:0.22;bottom:-30px;left:32%;--blur:40px;--dur:18s;--delay:5s;--tx1:12px;--ty1:-8px;--tx2:-18px;--ty2:6px"></div>
+      <!-- Rings — 右側に3連続波紋、左側に2連続波紋（ゴールド） -->
+      <div class="hero__ring" style="width:90px;height:90px;top:22%;right:14%;--dur:4.8s;--delay:0s"></div>
+      <div class="hero__ring" style="width:90px;height:90px;top:22%;right:14%;--dur:4.8s;--delay:1.6s"></div>
+      <div class="hero__ring" style="width:90px;height:90px;top:22%;right:14%;--dur:4.8s;--delay:3.2s"></div>
+      <div class="hero__ring" style="width:70px;height:70px;top:58%;left:10%;--dur:5.5s;--delay:0.8s;--ring-color:rgba(200,168,101,0.65);--ring-glow:rgba(200,168,101,0.28)"></div>
+      <div class="hero__ring" style="width:70px;height:70px;top:58%;left:10%;--dur:5.5s;--delay:3.6s;--ring-color:rgba(200,168,101,0.65);--ring-glow:rgba(200,168,101,0.28)"></div>
       <!-- Particles — 青・金の2色 -->
       <span class="hero__particle" style="width:14px;height:14px;top:18%;left:8%;--op:0.78;--dur:9s;--delay:0.3s;--tx:6px;--glow:14px"></span>
       <span class="hero__particle" style="width:10px;height:10px;top:38%;left:22%;--op:0.7;--dur:7s;--delay:1.8s;--tx:-5px;--glow:10px"></span>
@@ -987,11 +1010,11 @@
     <div class="hero__inner">
       <span class="hero__badge">2026 夏ギフト・お中元</span>
       <h1 class="hero__title">
-        瀬戸内のフルーツ、四万十川の清流を<br>
-        <span>特別な夏ギフト</span>に仕上げました。
+        <span class="hero__title__row">瀬戸内のフルーツ、四万十川の清流を</span>
+        <span class="hero__title__row"><span class="hero__title__accent">特別な夏ギフト</span>に仕上げました。</span>
       </h1>
       <p class="hero__sub">早期ご注文で商品代金 <strong>500円OFF</strong> ／ 7月15日（火）まで</p>
-      <p class="hero__sub" style="margin-top:6px;font-size:clamp(11px,1.7vw,14px);color:var(--text-light);">ご注文受付中 ／ お届け期間：2026年6月〜8月上旬</p>
+      <p class="hero__sub" style="margin-top:6px !important;font-size:clamp(11px,1.7vw,14px) !important;color:var(--text-light) !important;">ご注文受付中 ／ お届け期間：2026年6月〜8月上旬</p>
     </div>
   </section>
 
