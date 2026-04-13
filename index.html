@@ -209,20 +209,6 @@
       66%  { transform: translate(var(--tx2, -14px), var(--ty2, 10px)) scale(0.93); }
     }
 
-    /* Ripple rings — 水面の波紋：拡大しながらフェードアウト */
-    .hero__ring {
-      position: absolute;
-      border-radius: 50%;
-      border: 2px solid var(--ring-color, rgba(91, 164, 200, 0.7));
-      box-shadow: 0 0 12px var(--ring-glow, rgba(91, 164, 200, 0.3));
-      animation: ringRipple var(--dur, 5s) var(--delay, 0s) ease-out infinite;
-    }
-    @keyframes ringRipple {
-      0%   { transform: scale(0.25); opacity: 0.9; }
-      60%  { opacity: 0.3; }
-      100% { transform: scale(1.9); opacity: 0; }
-    }
-
     /* Floating particles — グロー付きで大きく */
     .hero__particle {
       position: absolute;
@@ -987,23 +973,15 @@
       <div class="hero__orb" style="width:380px;height:380px;background:var(--seto-blue);opacity:0.28;top:-110px;left:-90px;--blur:52px;--dur:16s;--tx1:26px;--ty1:-18px;--tx2:-15px;--ty2:22px"></div>
       <div class="hero__orb" style="width:260px;height:260px;background:var(--gold);opacity:0.24;top:-40px;right:-70px;--blur:44px;--dur:12s;--delay:2s;--tx1:-20px;--ty1:14px;--tx2:18px;--ty2:-16px"></div>
       <div class="hero__orb" style="width:200px;height:200px;background:var(--shim-deep);opacity:0.22;bottom:-30px;left:32%;--blur:40px;--dur:18s;--delay:5s;--tx1:12px;--ty1:-8px;--tx2:-18px;--ty2:6px"></div>
-      <!-- Rings — 右側に3連続波紋、左側に2連続波紋 -->
-      <!-- 右グループ -->
-      <div class="hero__ring" style="width:90px;height:90px;top:22%;right:14%;--dur:4.8s;--delay:0s"></div>
-      <div class="hero__ring" style="width:90px;height:90px;top:22%;right:14%;--dur:4.8s;--delay:1.6s"></div>
-      <div class="hero__ring" style="width:90px;height:90px;top:22%;right:14%;--dur:4.8s;--delay:3.2s"></div>
-      <!-- 左グループ（ゴールド） -->
-      <div class="hero__ring" style="width:70px;height:70px;top:58%;left:10%;--dur:5.5s;--delay:0.8s;--ring-color:rgba(200,168,101,0.65);--ring-glow:rgba(200,168,101,0.28)"></div>
-      <div class="hero__ring" style="width:70px;height:70px;top:58%;left:10%;--dur:5.5s;--delay:3.6s;--ring-color:rgba(200,168,101,0.65);--ring-glow:rgba(200,168,101,0.28)"></div>
-      <!-- Particles — 大きくグロー付き -->
+      <!-- Particles — 青・金の2色 -->
       <span class="hero__particle" style="width:14px;height:14px;top:18%;left:8%;--op:0.78;--dur:9s;--delay:0.3s;--tx:6px;--glow:14px"></span>
       <span class="hero__particle" style="width:10px;height:10px;top:38%;left:22%;--op:0.7;--dur:7s;--delay:1.8s;--tx:-5px;--glow:10px"></span>
       <span class="hero__particle" style="width:16px;height:16px;top:20%;right:10%;--op:0.75;--dur:11s;--delay:0.5s;--tx:7px;--bg:rgba(200,168,101,0.82);--glow:14px;--glow-c:rgba(200,168,101,0.5)"></span>
       <span class="hero__particle" style="width:10px;height:10px;top:55%;right:20%;--op:0.72;--dur:8.5s;--delay:2.2s;--tx:-5px;--glow:10px"></span>
-      <span class="hero__particle" style="width:12px;height:12px;top:42%;left:52%;--op:0.68;--dur:12s;--delay:1s;--tx:4px;--bg:rgba(61,122,88,0.75);--glow:12px;--glow-c:rgba(61,122,88,0.45)"></span>
+      <span class="hero__particle" style="width:12px;height:12px;top:42%;left:52%;--op:0.68;--dur:12s;--delay:1s;--tx:4px;--bg:rgba(200,168,101,0.78);--glow:12px;--glow-c:rgba(200,168,101,0.48)"></span>
       <span class="hero__particle" style="width:8px;height:8px;top:26%;right:40%;--op:0.72;--dur:7.5s;--delay:3.5s;--tx:-4px;--glow:8px"></span>
       <span class="hero__particle" style="width:12px;height:12px;top:65%;left:16%;--op:0.65;--dur:10s;--delay:0.8s;--tx:8px;--bg:rgba(200,168,101,0.78);--glow:12px;--glow-c:rgba(200,168,101,0.48)"></span>
-      <span class="hero__particle" style="width:9px;height:9px;top:14%;left:42%;--op:0.7;--dur:8s;--delay:4s;--tx:3px;--bg:rgba(61,122,88,0.7);--glow:9px;--glow-c:rgba(61,122,88,0.42)"></span>
+      <span class="hero__particle" style="width:9px;height:9px;top:14%;left:42%;--op:0.7;--dur:8s;--delay:4s;--tx:3px;--glow:9px"></span>
       <span class="hero__particle" style="width:11px;height:11px;top:61%;right:35%;--op:0.68;--dur:9.5s;--delay:2.8s;--tx:-6px;--glow:11px"></span>
     </div>
     <div class="hero__inner">
