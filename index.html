@@ -191,46 +191,49 @@
     .hero__dots {
       position: absolute;
       inset: 0;
-      background-image: radial-gradient(circle, rgba(45,107,158,0.26) 1.5px, transparent 1.5px);
+      background-image: radial-gradient(circle, rgba(45,107,158,0.3) 1.5px, transparent 1.5px);
       background-size: 26px 26px;
-      opacity: 0.6;
+      opacity: 0.7;
     }
 
-    /* Color orbs */
+    /* Color orbs — より濃く・ブラーを絞る */
     .hero__orb {
       position: absolute;
       border-radius: 50%;
-      filter: blur(var(--blur, 72px));
+      filter: blur(var(--blur, 48px));
       animation: orbDrift var(--dur, 14s) var(--delay, 0s) ease-in-out infinite;
     }
     @keyframes orbDrift {
-      0%, 100% { transform: translate(0, 0); }
-      33%  { transform: translate(var(--tx1, 18px), var(--ty1, -14px)); }
-      66%  { transform: translate(var(--tx2, -12px), var(--ty2, 9px)); }
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33%  { transform: translate(var(--tx1, 20px), var(--ty1, -16px)) scale(1.1); }
+      66%  { transform: translate(var(--tx2, -14px), var(--ty2, 10px)) scale(0.93); }
     }
 
-    /* Concentric rings */
+    /* Ripple rings — 水面の波紋：拡大しながらフェードアウト */
     .hero__ring {
       position: absolute;
       border-radius: 50%;
-      border: 1.5px solid rgba(91, 164, 200, var(--bop, 0.18));
-      animation: ringPulse var(--dur, 10s) var(--delay, 0s) ease-in-out infinite;
+      border: 2px solid var(--ring-color, rgba(91, 164, 200, 0.7));
+      box-shadow: 0 0 12px var(--ring-glow, rgba(91, 164, 200, 0.3));
+      animation: ringRipple var(--dur, 5s) var(--delay, 0s) ease-out infinite;
     }
-    @keyframes ringPulse {
-      0%, 100% { transform: scale(1);   opacity: var(--bop, 0.18); }
-      50%       { transform: scale(1.1); opacity: calc(var(--bop, 0.18) * 0.4); }
+    @keyframes ringRipple {
+      0%   { transform: scale(0.25); opacity: 0.9; }
+      60%  { opacity: 0.3; }
+      100% { transform: scale(1.9); opacity: 0; }
     }
 
-    /* Floating particles */
+    /* Floating particles — グロー付きで大きく */
     .hero__particle {
       position: absolute;
       border-radius: 50%;
-      background: rgba(91, 164, 200, var(--op, 0.42));
+      background: var(--bg, rgba(91, 164, 200, 0.8));
+      box-shadow: 0 0 var(--glow, 10px) var(--glow-c, rgba(91, 164, 200, 0.55));
       animation: particleFloat var(--dur, 8s) var(--delay, 0s) ease-in-out infinite;
     }
     @keyframes particleFloat {
-      0%, 100% { transform: translate(0, 0) scale(1); opacity: var(--op, 0.42); }
-      50%       { transform: translate(var(--tx, 5px), -11px) scale(1.18); opacity: calc(var(--op, 0.42) + 0.1); }
+      0%, 100% { transform: translate(0, 0) scale(1); opacity: var(--op, 0.75); }
+      50%       { transform: translate(var(--tx, 6px), -16px) scale(1.3); opacity: 1; }
     }
 
     .hero__inner { position: relative; z-index: 3; width: 100%; }
@@ -980,26 +983,28 @@
     <div class="hero__deco" aria-hidden="true">
       <!-- Dot grid -->
       <div class="hero__dots"></div>
-      <!-- Color orbs -->
-      <div class="hero__orb" style="width:400px;height:400px;background:var(--seto-blue);opacity:0.11;top:-130px;left:-110px;--blur:88px;--dur:17s;--tx1:28px;--ty1:-18px;--tx2:-16px;--ty2:24px"></div>
-      <div class="hero__orb" style="width:280px;height:280px;background:var(--gold);opacity:0.09;top:-50px;right:-90px;--blur:68px;--dur:13s;--delay:2s;--tx1:-22px;--ty1:16px;--tx2:20px;--ty2:-18px"></div>
-      <div class="hero__orb" style="width:220px;height:220px;background:var(--shim-deep);opacity:0.08;bottom:-40px;left:35%;--blur:58px;--dur:19s;--delay:5s;--tx1:14px;--ty1:-9px;--tx2:-20px;--ty2:6px"></div>
-      <!-- Rings -->
-      <div class="hero__ring" style="width:300px;height:300px;top:4%;right:2%;--dur:12s;--bop:0.14"></div>
-      <div class="hero__ring" style="width:180px;height:180px;top:12%;right:9%;--dur:15s;--delay:2.5s;--bop:0.09"></div>
-      <div class="hero__ring" style="width:130px;height:130px;bottom:22%;left:3%;--dur:11s;--delay:1s;--bop:0.13"></div>
-      <div class="hero__ring" style="width:70px;height:70px;top:28%;left:14%;--dur:9s;--delay:3.5s;--bop:0.2"></div>
-      <div class="hero__ring" style="width:50px;height:50px;bottom:32%;right:18%;--dur:8s;--delay:1.8s;--bop:0.16;border-color:rgba(200,168,101,0.22)"></div>
-      <!-- Particles -->
-      <span class="hero__particle" style="width:7px;height:7px;top:19%;left:9%;--op:0.44;--dur:9s;--delay:0.3s;--tx:5px"></span>
-      <span class="hero__particle" style="width:4px;height:4px;top:36%;left:24%;--op:0.28;--dur:7s;--delay:1.8s;--tx:-3px"></span>
-      <span class="hero__particle" style="width:9px;height:9px;top:21%;right:11%;--op:0.36;--dur:11s;--delay:0.5s;--tx:6px;background:rgba(200,168,101,0.48)"></span>
-      <span class="hero__particle" style="width:5px;height:5px;top:54%;right:21%;--op:0.3;--dur:8.5s;--delay:2.2s;--tx:-4px"></span>
-      <span class="hero__particle" style="width:6px;height:6px;top:44%;left:51%;--op:0.26;--dur:12s;--delay:1s;--tx:3px;background:rgba(61,122,88,0.42)"></span>
-      <span class="hero__particle" style="width:3px;height:3px;top:27%;right:41%;--op:0.33;--dur:7.5s;--delay:3.5s;--tx:-2px"></span>
-      <span class="hero__particle" style="width:8px;height:8px;top:66%;left:17%;--op:0.22;--dur:10s;--delay:0.8s;--tx:7px;background:rgba(200,168,101,0.38)"></span>
-      <span class="hero__particle" style="width:4px;height:4px;top:15%;left:40%;--op:0.32;--dur:8s;--delay:4s;--tx:3px;background:rgba(61,122,88,0.4)"></span>
-      <span class="hero__particle" style="width:6px;height:6px;top:60%;right:36%;--op:0.28;--dur:9.5s;--delay:2.8s;--tx:-5px"></span>
+      <!-- Color orbs — 色・透明度を強化 -->
+      <div class="hero__orb" style="width:380px;height:380px;background:var(--seto-blue);opacity:0.28;top:-110px;left:-90px;--blur:52px;--dur:16s;--tx1:26px;--ty1:-18px;--tx2:-15px;--ty2:22px"></div>
+      <div class="hero__orb" style="width:260px;height:260px;background:var(--gold);opacity:0.24;top:-40px;right:-70px;--blur:44px;--dur:12s;--delay:2s;--tx1:-20px;--ty1:14px;--tx2:18px;--ty2:-16px"></div>
+      <div class="hero__orb" style="width:200px;height:200px;background:var(--shim-deep);opacity:0.22;bottom:-30px;left:32%;--blur:40px;--dur:18s;--delay:5s;--tx1:12px;--ty1:-8px;--tx2:-18px;--ty2:6px"></div>
+      <!-- Rings — 右側に3連続波紋、左側に2連続波紋 -->
+      <!-- 右グループ -->
+      <div class="hero__ring" style="width:90px;height:90px;top:22%;right:14%;--dur:4.8s;--delay:0s"></div>
+      <div class="hero__ring" style="width:90px;height:90px;top:22%;right:14%;--dur:4.8s;--delay:1.6s"></div>
+      <div class="hero__ring" style="width:90px;height:90px;top:22%;right:14%;--dur:4.8s;--delay:3.2s"></div>
+      <!-- 左グループ（ゴールド） -->
+      <div class="hero__ring" style="width:70px;height:70px;top:58%;left:10%;--dur:5.5s;--delay:0.8s;--ring-color:rgba(200,168,101,0.65);--ring-glow:rgba(200,168,101,0.28)"></div>
+      <div class="hero__ring" style="width:70px;height:70px;top:58%;left:10%;--dur:5.5s;--delay:3.6s;--ring-color:rgba(200,168,101,0.65);--ring-glow:rgba(200,168,101,0.28)"></div>
+      <!-- Particles — 大きくグロー付き -->
+      <span class="hero__particle" style="width:14px;height:14px;top:18%;left:8%;--op:0.78;--dur:9s;--delay:0.3s;--tx:6px;--glow:14px"></span>
+      <span class="hero__particle" style="width:10px;height:10px;top:38%;left:22%;--op:0.7;--dur:7s;--delay:1.8s;--tx:-5px;--glow:10px"></span>
+      <span class="hero__particle" style="width:16px;height:16px;top:20%;right:10%;--op:0.75;--dur:11s;--delay:0.5s;--tx:7px;--bg:rgba(200,168,101,0.82);--glow:14px;--glow-c:rgba(200,168,101,0.5)"></span>
+      <span class="hero__particle" style="width:10px;height:10px;top:55%;right:20%;--op:0.72;--dur:8.5s;--delay:2.2s;--tx:-5px;--glow:10px"></span>
+      <span class="hero__particle" style="width:12px;height:12px;top:42%;left:52%;--op:0.68;--dur:12s;--delay:1s;--tx:4px;--bg:rgba(61,122,88,0.75);--glow:12px;--glow-c:rgba(61,122,88,0.45)"></span>
+      <span class="hero__particle" style="width:8px;height:8px;top:26%;right:40%;--op:0.72;--dur:7.5s;--delay:3.5s;--tx:-4px;--glow:8px"></span>
+      <span class="hero__particle" style="width:12px;height:12px;top:65%;left:16%;--op:0.65;--dur:10s;--delay:0.8s;--tx:8px;--bg:rgba(200,168,101,0.78);--glow:12px;--glow-c:rgba(200,168,101,0.48)"></span>
+      <span class="hero__particle" style="width:9px;height:9px;top:14%;left:42%;--op:0.7;--dur:8s;--delay:4s;--tx:3px;--bg:rgba(61,122,88,0.7);--glow:9px;--glow-c:rgba(61,122,88,0.42)"></span>
+      <span class="hero__particle" style="width:11px;height:11px;top:61%;right:35%;--op:0.68;--dur:9.5s;--delay:2.8s;--tx:-6px;--glow:11px"></span>
     </div>
     <div class="hero__inner">
       <span class="hero__badge">2026 夏ギフト・お中元</span>
