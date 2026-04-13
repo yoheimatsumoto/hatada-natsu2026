@@ -225,29 +225,29 @@
 
     .hero__inner { position: relative; z-index: 3; width: 100%; }
 
-    /* ShopServe対策: ヒーロー内テキストのmargin/paddingをゼロリセット */
+    /* ShopServe対策: ヒーロー内テキストのmargin/paddingをゼロリセット
+       ただし .hero__badge は除外（独自のpadding/marginを保持） */
     .hero__inner h1,
     .hero__inner p,
-    .hero__inner span,
+    .hero__inner span:not(.hero__badge):not(.hero__title__row):not(.hero__title__accent),
     .hero__inner strong {
       margin: 0 !important;
       padding: 0 !important;
     }
 
     .hero__badge {
-      display: inline-block !important;
+      display: inline-block;
       position: relative;
       overflow: hidden;
       background: linear-gradient(135deg, var(--seto-blue), var(--seto-deep));
-      color: var(--white) !important;
-      font-family: "Noto Serif JP", sans-serif !important;
-      font-size: 22px !important;
-      font-weight: 700 !important;
-      letter-spacing: 0.2em !important;
-      padding: 14px 40px !important;
-      border-radius: 36px !important;
-      margin-bottom: 24px !important;
-      line-height: 1 !important;
+      color: var(--white);
+      font-family: "Noto Serif JP", serif;
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      padding: 14px 40px;
+      border-radius: 36px;
+      margin-bottom: 24px;
       box-shadow: 0 4px 20px rgba(45,107,158,0.32);
       animation: heroFadeUp 0.9s 0.05s var(--ease-expo) both;
     }
