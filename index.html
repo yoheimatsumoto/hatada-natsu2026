@@ -154,14 +154,14 @@
     /* ------------------------------------------------------------------ */
     .hero {
       position: relative;
-      min-height: 300px;
+      min-height: 380px;
       background: linear-gradient(160deg, #9dcff0 0%, #c2e8f8 30%, #e4f4fb 55%, #f0ece0 78%, #e8dfc8 100%);
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
       overflow: hidden;
-      padding: 52px 20px;
+      padding: 72px 20px 84px;
     }
     .hero::before {
       content: "";
@@ -182,19 +182,57 @@
       z-index: 2;
     }
 
-    /* Water drop decorations */
-    .hero__drops { position: absolute; inset: 0; pointer-events: none; overflow: hidden; z-index: 1; }
-    .hero__drop {
+    /* ------------------------------------------------------------------ */
+    /* Hero decorations — dot grid + orbs + rings + particles */
+    /* ------------------------------------------------------------------ */
+    .hero__deco { position: absolute; inset: 0; pointer-events: none; overflow: hidden; z-index: 1; }
+
+    /* Dot grid */
+    .hero__dots {
       position: absolute;
-      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-      background: radial-gradient(ellipse at 35% 30%, rgba(255,255,255,0.82), rgba(180,225,248,0.35));
-      box-shadow: inset 1px 1px 2px rgba(255,255,255,0.6), inset -1px -1px 2px rgba(100,170,220,0.3);
-      animation: dropFloat var(--dur, 8s) var(--delay, 0s) ease-in-out infinite;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(45,107,158,0.26) 1.5px, transparent 1.5px);
+      background-size: 26px 26px;
+      opacity: 0.6;
     }
-    @keyframes dropFloat {
-      0%, 100% { transform: translateY(0) scale(1);    opacity: var(--op, 0.5); }
-      50%       { transform: translateY(-10px) scale(1.06); opacity: calc(var(--op, 0.5) + 0.12); }
+
+    /* Color orbs */
+    .hero__orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(var(--blur, 72px));
+      animation: orbDrift var(--dur, 14s) var(--delay, 0s) ease-in-out infinite;
     }
+    @keyframes orbDrift {
+      0%, 100% { transform: translate(0, 0); }
+      33%  { transform: translate(var(--tx1, 18px), var(--ty1, -14px)); }
+      66%  { transform: translate(var(--tx2, -12px), var(--ty2, 9px)); }
+    }
+
+    /* Concentric rings */
+    .hero__ring {
+      position: absolute;
+      border-radius: 50%;
+      border: 1.5px solid rgba(91, 164, 200, var(--bop, 0.18));
+      animation: ringPulse var(--dur, 10s) var(--delay, 0s) ease-in-out infinite;
+    }
+    @keyframes ringPulse {
+      0%, 100% { transform: scale(1);   opacity: var(--bop, 0.18); }
+      50%       { transform: scale(1.1); opacity: calc(var(--bop, 0.18) * 0.4); }
+    }
+
+    /* Floating particles */
+    .hero__particle {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(91, 164, 200, var(--op, 0.42));
+      animation: particleFloat var(--dur, 8s) var(--delay, 0s) ease-in-out infinite;
+    }
+    @keyframes particleFloat {
+      0%, 100% { transform: translate(0, 0) scale(1); opacity: var(--op, 0.42); }
+      50%       { transform: translate(var(--tx, 5px), -11px) scale(1.18); opacity: calc(var(--op, 0.42) + 0.1); }
+    }
+
     .hero__inner { position: relative; z-index: 3; width: 100%; }
     .hero__badge {
       display: inline-block;
@@ -247,55 +285,6 @@
     }
     .hero__sub strong { color: var(--seto-deep); }
 
-    /* Product image decoration in hero */
-    .hero__images {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      z-index: 1;
-      overflow: hidden;
-    }
-    .hero__img-deco {
-      position: absolute;
-      mix-blend-mode: multiply;
-      animation: decoFloat var(--dur, 10s) var(--delay, 0s) ease-in-out infinite;
-      filter: drop-shadow(0 8px 28px rgba(44,90,140,0.18));
-    }
-    .hero__img-deco--left {
-      width: clamp(160px, 25vw, 300px);
-      bottom: -10%;
-      left: -4%;
-      transform-origin: bottom center;
-      mask-image: linear-gradient(to right, transparent 0%, black 25%),
-                  linear-gradient(to top, transparent 0%, black 22%);
-      mask-composite: intersect;
-      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 25%),
-                          linear-gradient(to top, transparent 0%, black 22%);
-      -webkit-mask-composite: source-in;
-    }
-    .hero__img-deco--right {
-      width: clamp(150px, 23vw, 280px);
-      bottom: -8%;
-      right: -3%;
-      transform-origin: bottom center;
-      mask-image: linear-gradient(to left, transparent 0%, black 25%),
-                  linear-gradient(to top, transparent 0%, black 22%);
-      mask-composite: intersect;
-      -webkit-mask-image: linear-gradient(to left, transparent 0%, black 25%),
-                          linear-gradient(to top, transparent 0%, black 22%);
-      -webkit-mask-composite: source-in;
-    }
-    @keyframes decoFloat {
-      0%, 100% { transform: translateY(0) rotate(var(--rot-a, -3deg)) scale(1); }
-      50%       { transform: translateY(-9px) rotate(var(--rot-b, 1deg)) scale(1.02); }
-    }
-    @media (max-width: 480px) {
-      .hero__img-deco--left  { width: 110px; left: -8%; }
-      .hero__img-deco--right { width: 100px; right: -8%; }
-    }
-    @media (max-width: 360px) {
-      .hero__img-deco { display: none; }
-    }
 
     /* ------------------------------------------------------------------ */
     /* Carousel */
@@ -988,23 +977,29 @@
 
   <!-- Hero -->
   <section class="hero">
-    <div class="hero__images" aria-hidden="true">
-      <img class="hero__img-deco hero__img-deco--left"
-           src="https://www.hatada-kuritaruto.jp/pic-labo/llimg/2026_natsu_ilust01.jpg"
-           alt=""
-           style="opacity:0.82;--dur:9s;--delay:0s;--rot-a:-5deg;--rot-b:-1deg" />
-      <img class="hero__img-deco hero__img-deco--right"
-           src="https://www.hatada-kuritaruto.jp/pic-labo/llimg/2026_natsu_ilust02.jpg"
-           alt=""
-           style="opacity:0.78;--dur:11s;--delay:1.6s;--rot-a:4deg;--rot-b:8deg" />
-    </div>
-    <div class="hero__drops" aria-hidden="true">
-      <span class="hero__drop" style="width:8px;height:11px;top:20%;left:9%;--dur:8s;--delay:0.3s;--op:0.5"></span>
-      <span class="hero__drop" style="width:5px;height:7px;top:38%;left:22%;--dur:6.5s;--delay:1.4s;--op:0.4"></span>
-      <span class="hero__drop" style="width:10px;height:14px;top:16%;right:11%;--dur:9s;--delay:0.1s;--op:0.45"></span>
-      <span class="hero__drop" style="width:6px;height:8px;top:58%;right:20%;--dur:7.5s;--delay:2s;--op:0.35"></span>
-      <span class="hero__drop" style="width:7px;height:10px;top:44%;left:48%;--dur:10s;--delay:0.9s;--op:0.3"></span>
-      <span class="hero__drop" style="width:4px;height:6px;top:28%;right:38%;--dur:7s;--delay:3s;--op:0.38"></span>
+    <div class="hero__deco" aria-hidden="true">
+      <!-- Dot grid -->
+      <div class="hero__dots"></div>
+      <!-- Color orbs -->
+      <div class="hero__orb" style="width:400px;height:400px;background:var(--seto-blue);opacity:0.11;top:-130px;left:-110px;--blur:88px;--dur:17s;--tx1:28px;--ty1:-18px;--tx2:-16px;--ty2:24px"></div>
+      <div class="hero__orb" style="width:280px;height:280px;background:var(--gold);opacity:0.09;top:-50px;right:-90px;--blur:68px;--dur:13s;--delay:2s;--tx1:-22px;--ty1:16px;--tx2:20px;--ty2:-18px"></div>
+      <div class="hero__orb" style="width:220px;height:220px;background:var(--shim-deep);opacity:0.08;bottom:-40px;left:35%;--blur:58px;--dur:19s;--delay:5s;--tx1:14px;--ty1:-9px;--tx2:-20px;--ty2:6px"></div>
+      <!-- Rings -->
+      <div class="hero__ring" style="width:300px;height:300px;top:4%;right:2%;--dur:12s;--bop:0.14"></div>
+      <div class="hero__ring" style="width:180px;height:180px;top:12%;right:9%;--dur:15s;--delay:2.5s;--bop:0.09"></div>
+      <div class="hero__ring" style="width:130px;height:130px;bottom:22%;left:3%;--dur:11s;--delay:1s;--bop:0.13"></div>
+      <div class="hero__ring" style="width:70px;height:70px;top:28%;left:14%;--dur:9s;--delay:3.5s;--bop:0.2"></div>
+      <div class="hero__ring" style="width:50px;height:50px;bottom:32%;right:18%;--dur:8s;--delay:1.8s;--bop:0.16;border-color:rgba(200,168,101,0.22)"></div>
+      <!-- Particles -->
+      <span class="hero__particle" style="width:7px;height:7px;top:19%;left:9%;--op:0.44;--dur:9s;--delay:0.3s;--tx:5px"></span>
+      <span class="hero__particle" style="width:4px;height:4px;top:36%;left:24%;--op:0.28;--dur:7s;--delay:1.8s;--tx:-3px"></span>
+      <span class="hero__particle" style="width:9px;height:9px;top:21%;right:11%;--op:0.36;--dur:11s;--delay:0.5s;--tx:6px;background:rgba(200,168,101,0.48)"></span>
+      <span class="hero__particle" style="width:5px;height:5px;top:54%;right:21%;--op:0.3;--dur:8.5s;--delay:2.2s;--tx:-4px"></span>
+      <span class="hero__particle" style="width:6px;height:6px;top:44%;left:51%;--op:0.26;--dur:12s;--delay:1s;--tx:3px;background:rgba(61,122,88,0.42)"></span>
+      <span class="hero__particle" style="width:3px;height:3px;top:27%;right:41%;--op:0.33;--dur:7.5s;--delay:3.5s;--tx:-2px"></span>
+      <span class="hero__particle" style="width:8px;height:8px;top:66%;left:17%;--op:0.22;--dur:10s;--delay:0.8s;--tx:7px;background:rgba(200,168,101,0.38)"></span>
+      <span class="hero__particle" style="width:4px;height:4px;top:15%;left:40%;--op:0.32;--dur:8s;--delay:4s;--tx:3px;background:rgba(61,122,88,0.4)"></span>
+      <span class="hero__particle" style="width:6px;height:6px;top:60%;right:36%;--op:0.28;--dur:9.5s;--delay:2.8s;--tx:-5px"></span>
     </div>
     <div class="hero__inner">
       <span class="hero__badge">2026 夏ギフト・お中元</span>
