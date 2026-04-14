@@ -295,6 +295,36 @@
     .hero__sub + .hero__sub { margin-top: 6px !important; }
     .hero__sub strong { color: var(--seto-deep) !important; font-weight: 700 !important; }
 
+    /* ------------------------------------------------------------------ */
+    /* Hero Key Visual — 商品キービジュアル3点 */
+    /* ------------------------------------------------------------------ */
+    .hero-kv {
+      background: var(--dark-bg);
+      padding: 0 20px 64px;
+    }
+    .hero-kv__main {
+      max-width: 880px;
+      margin: 0 auto 16px;
+    }
+    .hero-kv__main img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 8px 48px rgba(0,0,0,0.52);
+      display: block;
+    }
+    .hero-kv__duo {
+      max-width: 880px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .hero-kv__duo img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 6px 32px rgba(0,0,0,0.42);
+      display: block;
+    }
 
     /* ------------------------------------------------------------------ */
     /* Carousel */
@@ -653,6 +683,10 @@
 
       /* Hero badge */
       .hero__badge          { font-size: 16px !important; padding: 10px 20px; letter-spacing: 0.12em; }
+
+      /* Hero KV */
+      .hero-kv              { padding: 0 14px 44px; }
+      .hero-kv__duo         { grid-template-columns: 1fr; gap: 12px; }
     }
     @media (max-width: 360px) {
       .product-grid { grid-template-columns: 1fr; }
@@ -1017,6 +1051,24 @@
       <p class="hero__sub" style="margin-top:6px !important;font-size:clamp(11px,1.7vw,14px) !important;color:var(--text-light) !important;">ご注文受付中 ／ お届け期間：2026年6月〜8月上旬</p>
     </div>
   </section>
+
+  <!-- Hero Key Visual -->
+  <div class="hero-kv">
+    <div class="hero-kv__main fade-in">
+      <img src="https://www.hatada-kuritaruto.jp/pic-labo/llimg/2026_00111.jpg"
+           alt="新 ハタダの夏ギフト 2026" loading="eager">
+    </div>
+    <div class="hero-kv__duo">
+      <div class="fade-in">
+        <img src="https://www.hatada-kuritaruto.jp/pic-labo/llimg/2026_00112.jpg"
+             alt="あふれる果実感 瀬戸内ぜりぃ" loading="lazy">
+      </div>
+      <div class="fade-in" style="transition-delay:0.12s">
+        <img src="https://www.hatada-kuritaruto.jp/pic-labo/llimg/2026_00113.jpg"
+             alt="新 四万十水ようかん" loading="lazy">
+      </div>
+    </div>
+  </div>
 
   <!-- Wave -->
   <div class="wave-divider" aria-hidden="true">
