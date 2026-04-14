@@ -14,7 +14,10 @@
     /* --- ShopServe標準パーツを非表示 --- */
     #item_detail_main,
     .item_detail_area,
-    .item_detail_table {
+    .item_detail_table,
+    #spsVarpriceStockDialog1,
+    .cartArea,
+    table.variation {
       display: none !important;
     }
     /* --- LPエリアをヘッダー直下から開始 --- */
@@ -23,6 +26,35 @@
       margin-top: 0 !important;
     }
   </style>
+  <script>
+    /* ShopServeがJSで後からカートを表示する場合の対策 */
+    (function () {
+      function hideDefaultCart() {
+        var targets = [
+          document.getElementById('spsVarpriceStockDialog1'),
+          document.querySelector('.cartArea'),
+          document.querySelector('table.variation')
+        ];
+        targets.forEach(function (el) {
+          if (!el) return;
+          el.style.setProperty('display', 'none', 'important');
+          /* 親要素がbody・html以外なら親ごと隠す */
+          var p = el.parentNode;
+          if (p && p.tagName !== 'BODY' && p.tagName !== 'HTML') {
+            p.style.setProperty('display', 'none', 'important');
+          }
+        });
+      }
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', hideDefaultCart);
+      } else {
+        hideDefaultCart();
+      }
+      /* ShopServe側JSが遅延実行する場合の保険 */
+      setTimeout(hideDefaultCart, 300);
+      setTimeout(hideDefaultCart, 800);
+    }());
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Zen+Antique+Soft&family=Noto+Serif+JP:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&family=M+PLUS+1:wght@400;500;700;800&display=swap" rel="stylesheet" />
   <style>
