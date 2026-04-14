@@ -4,6 +4,25 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>2026 夏ギフト・お中元｜ハタダ</title>
+  <!-- ============================================================
+       ShopServe LP統合設定
+       商品説明文エリアにそのままコピーペーストして使用。
+       標準パーツ（商品名・価格・カートボタン）を非表示にし、
+       LP内のボタンから直接カートへ遷移する構成。
+       ============================================================ -->
+  <style>
+    /* --- ShopServe標準パーツを非表示 --- */
+    #item_detail_main,
+    .item_detail_area,
+    .item_detail_table {
+      display: none !important;
+    }
+    /* --- LPエリアをヘッダー直下から開始 --- */
+    .item_exp_area {
+      padding-top: 0 !important;
+      margin-top: 0 !important;
+    }
+  </style>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Zen+Antique+Soft&family=Noto+Serif+JP:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&family=M+PLUS+1:wght@400;500;700;800&display=swap" rel="stylesheet" />
   <style>
@@ -1339,6 +1358,23 @@
 
     const IMG_BASE = 'https://www.hatada-kuritaruto.jp/pic-labo/llimg/2026_natsu_kirinuki_';
 
+    /* =============================================================
+       ShopServe カートURL設定
+       下記 ##URL_*## をShopServe管理画面の実際のURLに置換してください。
+
+       URLの形式：
+       https://[ドメイン]/cart/cart.cgi?id=[商品番号]&v=[バリエーション枝番号]&count=1
+
+       ・商品番号(id)   : 管理画面 > 商品編集ページで確認
+       ・バリエーション枝番号(v) : 項目選択肢ごとに割り振られた番号
+       ・##URL_ORDER## : 商品一覧TOPへ誘導するボタン（2か所）
+
+       置換対象一覧（計17箇所）:
+         ##URL_ORDER##
+         ##URL_SETO_4##  ##URL_SETO_6##  ##URL_SETO_9##  ##URL_SETO_12##  ##URL_SETO_16##
+         ##URL_SHIM_4##  ##URL_SHIM_6##  ##URL_SHIM_9##  ##URL_SHIM_12##  ##URL_SHIM_16##
+         ##URL_MIX_4##   ##URL_MIX_6##   ##URL_MIX_9##   ##URL_MIX_12##   ##URL_MIX_16##
+       ============================================================= */
     const PRODUCTS = [
       { cat: 'seto',     name: '瀬戸内ぜりぃ\n4個入',   price: 1600, qty: '4個入',  img: '01', contents: '瀬戸内檸檬×1　白桃×1　伊予柑×1　岡山ピオーネ×1',             url: '##URL_SETO_4##'  },
       { cat: 'seto',     name: '瀬戸内ぜりぃ\n6個入',   price: 2400, qty: '6個入',  img: '02', contents: '瀬戸内檸檬×2　白桃×1　伊予柑×2　岡山ピオーネ×1',             url: '##URL_SETO_6##'  },
