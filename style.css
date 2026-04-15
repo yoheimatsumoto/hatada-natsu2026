@@ -521,7 +521,7 @@
       background: linear-gradient(90deg, transparent, var(--cream-dark) 20%, var(--cream-dark) 80%, transparent);
       margin-bottom: 12px;
     }
-    .product-card__contents { font-size: 13px; color: var(--text-mid); line-height: 1.8; margin-bottom: 10px; }
+    .product-card__contents { font-size: 13px; color: var(--text-mid); line-height: 1.8; margin-bottom: 10px; flex: 1; }
     .product-card__price-row {
       display: flex;
       align-items: flex-end;
@@ -540,7 +540,7 @@
     .product-card__price span { font-size: 14px; font-weight: 500; color: var(--text-mid); margin-left: 2px; }
     .product-card__price-tax  { font-size: 12px; color: var(--text-light); margin-top: 3px; }
     .product-card__qty        { font-size: 12px; color: var(--text-mid); text-align: right; line-height: 1.6; }
-    .product-card__cta-wrap { margin-top: auto; padding-top: 12px; }
+    .product-card__cta-wrap { padding-top: 12px; }
     .product-card__cta {
       display: block;
       width: 100%;
@@ -917,6 +917,7 @@
       border-radius: 4px;
       white-space: nowrap;
     }
+    .product-card__early-price--hidden { visibility: hidden; }
     .product-card__early-price::before {
       content: "早割";
       background: var(--gold-deep);
