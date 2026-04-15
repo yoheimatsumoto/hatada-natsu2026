@@ -79,8 +79,10 @@
                   </div>
                   <div class="product-card__qty">${p.qty}</div>
                 </div>
-                ${p.price >= 3000 ? `<div class="product-card__early-price">早割適用で ${(p.price - 500).toLocaleString()}円</div>` : ''}
-                <a class="product-card__cta" href="${p.url}" style="margin-top:${p.price >= 3000 ? '12px' : '0'}">カートに入れる →</a>
+                <div class="product-card__cta-wrap">
+                  ${p.price >= 3000 ? `<div class="product-card__early-price">早割適用で ${(p.price - 500).toLocaleString()}円</div>` : ''}
+                  <a class="product-card__cta" href="${p.url}">カートに入れる →</a>
+                </div>
               </div>
             </div>`;
         })
