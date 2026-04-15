@@ -21,21 +21,21 @@
          https://www.hatada-kuritaruto.jp/cart/cart.cgi?id=2026_0001&v=mix004&count=1   https://www.hatada-kuritaruto.jp/cart/cart.cgi?id=2026_0001&v=mix006&count=1   https://www.hatada-kuritaruto.jp/cart/cart.cgi?id=2026_0001&v=mix009&count=1   https://www.hatada-kuritaruto.jp/cart/cart.cgi?id=2026_0001&v=mix012&count=1   https://www.hatada-kuritaruto.jp/cart/cart.cgi?id=2026_0001&v=mix016&count=1
        ============================================================= */
     const PRODUCTS = [
-      { cat: 'seto',     name: '瀬戸内ぜりぃ\n4個入',   price: 1600, qty: '4個入',  img: '01', contents: '瀬戸内檸檬×1　白桃×1　伊予柑×1　岡山ピオーネ×1',             url: 'https://www.hatada-kuritaruto.jp/cart/cart.cgi?id=2026_0001&v=seto004&count=1'  },
-      { cat: 'seto',     name: '瀬戸内ぜりぃ\n6個入',   price: 2400, qty: '6個入',  img: '02', contents: '瀬戸内檸檬×2　白桃×1　伊予柑×2　岡山ピオーネ×1',             url: 'https://www.hatada-kuritaruto.jp/cart/cart.cgi?id=2026_0001&v=seto006&count=1'  },
-      { cat: 'seto',     name: '瀬戸内ぜりぃ\n9個入',   price: 3600, qty: '9個入',  img: '03', contents: '瀬戸内檸檬×2　白桃×2　伊予柑×3　岡山ピオーネ×2',             url: 'https://www.hatada-kuritaruto.jp/cart/cart.cgi?id=2026_0001&v=seto009&count=1'  },
-      { cat: 'seto',     name: '瀬戸内ぜりぃ\n12個入',  price: 4800, qty: '12個入', img: '04', contents: '瀬戸内檸檬×3　白桃×3　伊予柑×3　岡山ピオーネ×3',             url: 'https://www.hatada-kuritaruto.jp/cart/cart.cgi?id=2026_0001&v=seto012&count=1' },
-      { cat: 'seto',     name: '瀬戸内ぜりぃ\n16個入',  price: 6400, qty: '16個入', img: '05', contents: '瀬戸内檸檬×4　白桃×4　伊予柑×4　岡山ピオーネ×4',             url: 'https://www.hatada-kuritaruto.jp/cart/cart.cgi?id=2026_0001&v=seto016&count=1' },
-      { cat: 'shimanto', name: '四万十水ようかん\n4個入',  price: 1600, qty: '4個入',  img: '06', contents: 'ねり×2　小倉×1　抹茶×1',                                    url: 'https://www.hatada-kuritaruto.jp/cart/cart.cgi?id=2026_0001&v=sima004&count=1'  },
-      { cat: 'shimanto', name: '四万十水ようかん\n6個入',  price: 2400, qty: '6個入',  img: '07', contents: 'ねり×2　小倉×2　抹茶×2',                                    url: 'https://www.hatada-kuritaruto.jp/cart/cart.cgi?id=2026_0001&v=sima006&count=1'  },
-      { cat: 'shimanto', name: '四万十水ようかん\n9個入',  price: 3600, qty: '9個入',  img: '08', contents: 'ねり×3　小倉×3　抹茶×3',                                    url: 'https://www.hatada-kuritaruto.jp/cart/cart.cgi?id=2026_0001&v=sima009&count=1'  },
-      { cat: 'shimanto', name: '四万十水ようかん\n12個入', price: 4800, qty: '12個入', img: '09', contents: 'ねり×4　小倉×4　抹茶×4',                                    url: 'https://www.hatada-kuritaruto.jp/cart/cart.cgi?id=2026_0001&v=sima012&count=1' },
-      { cat: 'shimanto', name: '四万十水ようかん\n16個入', price: 6400, qty: '16個入', img: '10', contents: 'ねり×8　小倉×4　抹茶×4',                                    url: 'https://www.hatada-kuritaruto.jp/cart/cart.cgi?id=2026_0001&v=sima016&count=1' },
-      { cat: 'mix', name: '瀬戸内ぜりぃ×四万十水ようかん\n4個入',  price: 1600, qty: '4個入',  img: '11', contents: 'ぜりぃ 瀬戸内檸檬×1 伊予柑×1　水ようかん ねり×1 抹茶×1',                               url: 'https://www.hatada-kuritaruto.jp/cart/cart.cgi?id=2026_0001&v=mix004&count=1'  },
-      { cat: 'mix', name: '瀬戸内ぜりぃ×四万十水ようかん\n6個入',  price: 2400, qty: '6個入',  img: '12', contents: 'ぜりぃ 瀬戸内檸檬×1 伊予柑×1 岡山ピオーネ×1　水ようかん ねり×1 小倉×1 抹茶×1',       url: 'https://www.hatada-kuritaruto.jp/cart/cart.cgi?id=2026_0001&v=mix006&count=1'  },
-      { cat: 'mix', name: '瀬戸内ぜりぃ×四万十水ようかん\n9個入',  price: 3600, qty: '9個入',  img: '13', contents: 'ぜりぃ 瀬戸内檸檬×2 白桃×1 伊予柑×2 岡山ピオーネ×1　水ようかん ねり×1 小倉×1 抹茶×1', url: 'https://www.hatada-kuritaruto.jp/cart/cart.cgi?id=2026_0001&v=mix009&count=1'  },
-      { cat: 'mix', name: '瀬戸内ぜりぃ×四万十水ようかん\n12個入', price: 4800, qty: '12個入', img: '14', contents: 'ぜりぃ 瀬戸内檸檬×2 白桃×2 伊予柑×2 岡山ピオーネ×2　水ようかん ねり×2 小倉×1 抹茶×1', url: 'https://www.hatada-kuritaruto.jp/cart/cart.cgi?id=2026_0001&v=mix012&count=1' },
-      { cat: 'mix', name: '瀬戸内ぜりぃ×四万十水ようかん\n16個入', price: 6400, qty: '16個入', img: '15', contents: 'ぜりぃ 瀬戸内檸檬×2 白桃×2 伊予柑×2 岡山ピオーネ×2　水ようかん ねり×4 小倉×2 抹茶×2', url: 'https://www.hatada-kuritaruto.jp/cart/cart.cgi?id=2026_0001&v=mix016&count=1' },
+      { cat: 'seto',     name: '瀬戸内ぜりぃ\n4個入',   price: 1600, qty: '4個入',  img: '01', contents: '瀬戸内檸檬×1　白桃×1　伊予柑×1　岡山ピオーネ×1',             itm: '301-26-', var1: '4個入'  },
+      { cat: 'seto',     name: '瀬戸内ぜりぃ\n6個入',   price: 2400, qty: '6個入',  img: '02', contents: '瀬戸内檸檬×2　白桃×1　伊予柑×2　岡山ピオーネ×1',             itm: '301-26-', var1: '6個入'  },
+      { cat: 'seto',     name: '瀬戸内ぜりぃ\n9個入',   price: 3600, qty: '9個入',  img: '03', contents: '瀬戸内檸檬×2　白桃×2　伊予柑×3　岡山ピオーネ×2',             itm: '301-26-', var1: '9個入'  },
+      { cat: 'seto',     name: '瀬戸内ぜりぃ\n12個入',  price: 4800, qty: '12個入', img: '04', contents: '瀬戸内檸檬×3　白桃×3　伊予柑×3　岡山ピオーネ×3',             itm: '301-26-', var1: '12個入' },
+      { cat: 'seto',     name: '瀬戸内ぜりぃ\n16個入',  price: 6400, qty: '16個入', img: '05', contents: '瀬戸内檸檬×4　白桃×4　伊予柑×4　岡山ピオーネ×4',             itm: '301-26-', var1: '16個入' },
+      { cat: 'shimanto', name: '四万十水ようかん\n4個入',  price: 1600, qty: '4個入',  img: '06', contents: 'ねり×2　小倉×1　抹茶×1',                                    itm: '242-26-', var1: '4個入'  },
+      { cat: 'shimanto', name: '四万十水ようかん\n6個入',  price: 2400, qty: '6個入',  img: '07', contents: 'ねり×2　小倉×2　抹茶×2',                                    itm: '242-26-', var1: '6個入'  },
+      { cat: 'shimanto', name: '四万十水ようかん\n9個入',  price: 3600, qty: '9個入',  img: '08', contents: 'ねり×3　小倉×3　抹茶×3',                                    itm: '242-26-', var1: '9個入'  },
+      { cat: 'shimanto', name: '四万十水ようかん\n12個入', price: 4800, qty: '12個入', img: '09', contents: 'ねり×4　小倉×4　抹茶×4',                                    itm: '242-26-', var1: '12個入' },
+      { cat: 'shimanto', name: '四万十水ようかん\n16個入', price: 6400, qty: '16個入', img: '10', contents: 'ねり×8　小倉×4　抹茶×4',                                    itm: '242-26-', var1: '16個入' },
+      { cat: 'mix', name: '瀬戸内ぜりぃ×四万十水ようかん\n4個入',  price: 1600, qty: '4個入',  img: '11', contents: 'ぜりぃ 瀬戸内檸檬×1 伊予柑×1　水ようかん ねり×1 抹茶×1',                               itm: '243-26-', var1: '4個入'  },
+      { cat: 'mix', name: '瀬戸内ぜりぃ×四万十水ようかん\n6個入',  price: 2400, qty: '6個入',  img: '12', contents: 'ぜりぃ 瀬戸内檸檬×1 伊予柑×1 岡山ピオーネ×1　水ようかん ねり×1 小倉×1 抹茶×1',       itm: '243-26-', var1: '6個入'  },
+      { cat: 'mix', name: '瀬戸内ぜりぃ×四万十水ようかん\n9個入',  price: 3600, qty: '9個入',  img: '13', contents: 'ぜりぃ 瀬戸内檸檬×2 白桃×1 伊予柑×2 岡山ピオーネ×1　水ようかん ねり×1 小倉×1 抹茶×1', itm: '243-26-', var1: '9個入'  },
+      { cat: 'mix', name: '瀬戸内ぜりぃ×四万十水ようかん\n12個入', price: 4800, qty: '12個入', img: '14', contents: 'ぜりぃ 瀬戸内檸檬×2 白桃×2 伊予柑×2 岡山ピオーネ×2　水ようかん ねり×2 小倉×1 抹茶×1', itm: '243-26-', var1: '12個入' },
+      { cat: 'mix', name: '瀬戸内ぜりぃ×四万十水ようかん\n16個入', price: 6400, qty: '16個入', img: '15', contents: 'ぜりぃ 瀬戸内檸檬×2 白桃×2 伊予柑×2 岡山ピオーネ×2　水ようかん ねり×4 小倉×2 抹茶×2', itm: '243-26-', var1: '16個入' },
     ];
 
     const CAT_LABEL = { seto: '瀬戸内ぜりぃ', shimanto: '四万十水ようかん', mix: '詰め合わせ' };
@@ -83,7 +83,14 @@
                   ${p.price >= 3000
                     ? `<div class="product-card__early-price">早割適用で ${(p.price - 500).toLocaleString()}円</div>`
                     : `<div class="product-card__early-price product-card__early-price--hidden">早割適用で ${(p.price - 500).toLocaleString()}円</div>`}
-                  <a class="product-card__cta" href="${p.url}">カートに入れる →</a>
+                  <form class="product-card__cart-form" method="POST" action="https://www.hatada-kuritaruto.jp/CART/cart.php">
+                    <input type="hidden" name="ITM-1" value="${p.itm}">
+                    <input type="hidden" name="ITEM_NO" value="${p.itm}">
+                    <input type="hidden" name="CNT-1" value="1">
+                    <input type="hidden" name="elapsed_time" value="">
+                    <button type="submit" class="product-card__cta"
+                            onclick="setElapsedTime(this.form); return cartin_from_list(this, '${p.var1}', '', '');">カートに入れる →</button>
+                  </form>
                 </div>
               </div>
             </div>`;
