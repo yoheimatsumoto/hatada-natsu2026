@@ -86,10 +86,9 @@
                   <form class="product-card__cart-form" method="POST" action="https://www.hatada-kuritaruto.jp/CART/cart.php">
                     <input type="hidden" name="ITM-1" value="${p.itm}">
                     <input type="hidden" name="ITEM_NO" value="${p.itm}">
+                    <input type="hidden" name="VAR1-1" value="${p.var1}">
                     <input type="hidden" name="CNT-1" value="1">
-                    <input type="hidden" name="elapsed_time" value="">
-                    <button type="submit" class="product-card__cta"
-                            onclick="setElapsedTime(this.form); return cartin_from_list(this, '${p.var1}', '', '');">カートに入れる →</button>
+                    <button type="submit" class="product-card__cta">カートに入れる →</button>
                   </form>
                 </div>
               </div>
