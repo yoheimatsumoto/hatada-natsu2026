@@ -961,6 +961,33 @@
     .sticky-order__btn:hover { filter: brightness(1.08); box-shadow: 0 6px 28px rgba(200,168,101,0.6); }
 
     /* ------------------------------------------------------------------ */
+    /* Lineup Alert（商品種別の案内） */
+    /* ------------------------------------------------------------------ */
+    .lineup-alert {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-left: 3px solid var(--seto-mid, #4a9eff);
+      border-radius: 6px;
+      padding: 13px 16px;
+      margin-bottom: 28px;
+      font-size: clamp(12px, 1.6vw, 13.5px);
+      color: var(--text-light, rgba(255,255,255,0.72));
+      line-height: 1.65;
+    }
+    .lineup-alert__icon {
+      flex-shrink: 0;
+      font-size: 16px;
+      margin-top: 1px;
+    }
+    .lineup-alert strong {
+      color: var(--white, #fff);
+      font-weight: 600;
+    }
+
+    /* ------------------------------------------------------------------ */
     /* Back to Top */
     /* ------------------------------------------------------------------ */
     .back-top {

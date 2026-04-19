@@ -102,6 +102,16 @@
       const catTabs   = document.querySelectorAll('.filter-tab--cat');
       const priceTabs = document.querySelectorAll('.filter-tab--price');
 
+      // HTMLの data-default-cat 属性から初期カテゴリを設定
+      const filterGroup = document.getElementById('filterGroup');
+      const defaultCat  = filterGroup && filterGroup.dataset.defaultCat;
+      if (defaultCat && defaultCat !== 'all') {
+        activeCat = defaultCat;
+        catTabs.forEach(t => delete t.dataset.active);
+        const defaultTab = document.querySelector('[data-filter="' + defaultCat + '"]');
+        if (defaultTab) defaultTab.dataset.active = defaultCat;
+      }
+
       catTabs.forEach(tab => {
         tab.addEventListener('click', () => {
           catTabs.forEach(t => delete t.dataset.active);
