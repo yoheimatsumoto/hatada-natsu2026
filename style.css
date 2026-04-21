@@ -274,22 +274,18 @@
       letter-spacing: 0.05em !important;
     }
     .hero__title__new {
-      display: inline-flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-      width: 1.22em !important;
-      height: 1.22em !important;
-      border-radius: 50% !important;
-      background: #1a3060 !important;
-      color: #fff !important;
-      font-size: 0.84em !important;
-      font-weight: 900 !important;
-      font-family: "M PLUS 1", sans-serif !important;
-      letter-spacing: 0 !important;
-      line-height: 1 !important;
-      vertical-align: middle !important;
-      margin: 0 0.08em 0.12em !important;
-      flex-shrink: 0 !important;
+      display: inline !important;
+      font-weight: 700 !important;
+      background: linear-gradient(110deg, #1a3060 0%, #2d6b9e 28%, #c8a865 52%, #2d6b9e 76%, #1a3060 100%) !important;
+      background-size: 280% auto !important;
+      -webkit-background-clip: text !important;
+      -webkit-text-fill-color: transparent !important;
+      background-clip: text !important;
+      animation: newCharFlow 3.8s 1.2s linear infinite !important;
+    }
+    @keyframes newCharFlow {
+      0%   { background-position: 100% center; }
+      100% { background-position: 0% center; }
     }
     .hero__sub {
       display: block !important;
