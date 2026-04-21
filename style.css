@@ -291,8 +291,8 @@
       font-weight: 400 !important;
       line-height: 1 !important;
       letter-spacing: 0 !important;
-      vertical-align: middle !important;
-      margin: 0 0.22em 0.1em !important;
+      vertical-align: -0.28em !important;
+      margin: 0 0.22em !important;
       flex-shrink: 0 !important;
       animation: none !important;
     }
