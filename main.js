@@ -176,7 +176,7 @@
     function initCountdown() {
       const timerEl = document.querySelector('.early-bird__timer');
       if (!timerEl) return;
-      const DEADLINE = new Date('2026-07-15T23:59:59');
+      const DEADLINE = new Date('2026-07-31T23:59:59');
       function update() {
         const diff  = DEADLINE - new Date();
         if (diff <= 0) { timerEl.innerHTML = '残り <span class="early-bird__days">0</span> 日'; return; }
