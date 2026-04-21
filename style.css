@@ -220,7 +220,7 @@
        ただし .hero__badge は除外（独自のpadding/marginを保持） */
     .hero__inner h1,
     .hero__inner p,
-    .hero__inner span:not(.hero__badge):not(.hero__title__row):not(.hero__title__accent),
+    .hero__inner span:not(.hero__badge):not(.hero__title__row):not(.hero__title__accent):not(.hero__title__new),
     .hero__inner strong {
       margin: 0 !important;
       padding: 0 !important;
@@ -272,6 +272,24 @@
       font-size: 1.12em !important;
       font-weight: 700 !important;
       letter-spacing: 0.05em !important;
+    }
+    .hero__title__new {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      width: 1.22em !important;
+      height: 1.22em !important;
+      border-radius: 50% !important;
+      background: #1a3060 !important;
+      color: #fff !important;
+      font-size: 0.84em !important;
+      font-weight: 900 !important;
+      font-family: "M PLUS 1", sans-serif !important;
+      letter-spacing: 0 !important;
+      line-height: 1 !important;
+      vertical-align: middle !important;
+      margin: 0 0.08em 0.12em !important;
+      flex-shrink: 0 !important;
     }
     .hero__sub {
       display: block !important;
