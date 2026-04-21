@@ -251,7 +251,7 @@
     }
     .hero__title {
       font-family: "Zen Antique Soft", "Noto Serif JP", sans-serif !important;
-      font-size: clamp(17px, 2.9vw, 32px) !important;
+      font-size: clamp(20px, 3.5vw, 38px) !important;
       font-weight: 400 !important;
       letter-spacing: 0.01em !important;
       line-height: 1 !important;        /* <br>ではなくspanで折り返すためline-heightは1に */
