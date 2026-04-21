@@ -3,15 +3,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>2026 夏ギフト・お中元｜ハタダ</title>
-  <!-- ============================================================
-       ShopServe LP統合設定
-       商品説明文エリアにそのままコピーペーストして使用。
-       標準パーツ（商品名・価格・カートボタン）はそのまま表示。
-       LP内の各商品カードのボタンからも直接カートへ遷移可能。
-       ============================================================ -->
+  <title>【確認用】四万十水ようかん｜ハタダ 2026夏ギフト</title>
   <link href="https://fonts.googleapis.com/css2?family=Zen+Antique+Soft&family=Noto+Serif+JP:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&family=M+PLUS+1:wght@400;500;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css">
+</head>
 <body>
 
   <!-- Early Bird Bar -->
@@ -37,15 +32,12 @@
   <!-- Hero -->
   <section class="hero">
     <div class="hero__deco" aria-hidden="true">
-      <!-- Dot grid -->
       <div class="hero__dots"></div>
-      <!-- Rings — 右側に3連続波紋、左側に2連続波紋（ゴールド） -->
       <div class="hero__ring" style="width:90px;height:90px;top:22%;right:14%;--dur:4.8s;--delay:0s"></div>
       <div class="hero__ring" style="width:90px;height:90px;top:22%;right:14%;--dur:4.8s;--delay:1.6s"></div>
       <div class="hero__ring" style="width:90px;height:90px;top:22%;right:14%;--dur:4.8s;--delay:3.2s"></div>
       <div class="hero__ring" style="width:70px;height:70px;top:58%;left:10%;--dur:5.5s;--delay:0.8s;--ring-color:rgba(200,168,101,0.65);--ring-glow:rgba(200,168,101,0.28)"></div>
       <div class="hero__ring" style="width:70px;height:70px;top:58%;left:10%;--dur:5.5s;--delay:3.6s;--ring-color:rgba(200,168,101,0.65);--ring-glow:rgba(200,168,101,0.28)"></div>
-      <!-- Particles — 青・金の2色 -->
       <span class="hero__particle" style="width:14px;height:14px;top:18%;left:8%;--op:0.78;--dur:9s;--delay:0.3s;--tx:6px;--glow:14px"></span>
       <span class="hero__particle" style="width:10px;height:10px;top:38%;left:22%;--op:0.7;--dur:7s;--delay:1.8s;--tx:-5px;--glow:10px"></span>
       <span class="hero__particle" style="width:16px;height:16px;top:20%;right:10%;--op:0.75;--dur:11s;--delay:0.5s;--tx:7px;--bg:rgba(200,168,101,0.82);--glow:14px;--glow-c:rgba(200,168,101,0.5)"></span>
@@ -210,14 +202,14 @@
         <h2 class="section-title">詰め合わせいろいろ</h2>
         <div class="section-rule"></div>
       </div>
-      <div class="filter-group fade-in" id="filterGroup">
+      <div class="filter-group fade-in" id="filterGroup" data-default-cat="shimanto">
         <div class="filter-row">
           <span class="filter-row__label">種類</span>
           <div class="filter-tabs" id="filterCat">
-            <button class="filter-tab filter-tab--cat" data-filter="all"      data-active="all">すべて</button>
-            <button class="filter-tab filter-tab--cat" data-filter="seto"                      >瀬戸内ぜりぃ</button>
-            <button class="filter-tab filter-tab--cat" data-filter="shimanto"                  >四万十水ようかん</button>
-            <button class="filter-tab filter-tab--cat" data-filter="mix"                       >詰め合わせ</button>
+            <button class="filter-tab filter-tab--cat" data-filter="all"                          >すべて</button>
+            <button class="filter-tab filter-tab--cat" data-filter="seto"                         >瀬戸内ぜりぃ</button>
+            <button class="filter-tab filter-tab--cat" data-filter="shimanto" data-active="shimanto">四万十水ようかん</button>
+            <button class="filter-tab filter-tab--cat" data-filter="mix"                          >詰め合わせ</button>
           </div>
         </div>
         <div class="filter-row">
@@ -231,6 +223,11 @@
             <button class="filter-tab filter-tab--price" data-price="6400"                  >6,400円</button>
           </div>
         </div>
+      </div>
+      <!-- 商品種別のご案内 -->
+      <div style="display:flex;align-items:flex-start;gap:10px;background:#ddeef8;border:1px solid #a8cce4;border-left:4px solid #2d6b9e;border-radius:6px;padding:13px 16px;margin-bottom:28px;font-size:13px;color:#0f2d42;line-height:1.7;box-sizing:border-box;">
+        <span style="flex-shrink:0;font-size:15px;margin-top:1px;">ℹ️</span>
+        <span>このページは<strong style="color:#0a1e2e;font-weight:700;">「四万十水ようかん」</strong>を表示しています。<strong style="color:#0a1e2e;font-weight:700;">「瀬戸内ぜりぃ」「詰め合わせ」</strong>は上の「種類」ボタンで切り替えてお選びいただけます。</span>
       </div>
       <div class="product-grid" id="productGrid"></div>
       <div class="noshi">
@@ -250,8 +247,6 @@
     </div>
   </section>
 
-
-
   <!-- Sticky Mobile CTA -->
   <div class="sticky-order">
     <a class="sticky-order__btn" href="#lineup">夏ギフトを注文する →</a>
@@ -261,4 +256,5 @@
   <button class="back-top" id="backTop" aria-label="ページトップへ">↑</button>
 
 <script src="main.js"></script>
-</body></html>
+</body>
+</html>
