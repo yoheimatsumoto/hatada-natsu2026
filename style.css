@@ -262,9 +262,17 @@
     /* 1行ずつ <span class="hero__title__row"> で折り返し制御 */
     .hero__title__row {
       display: block !important;
-      line-height: 1.75 !important;    /* 各行の行間はここで制御 */
+      line-height: 1.75 !important;
       margin: 0 !important;
       padding: 0 !important;
+      animation: titleWave 4s ease-in-out infinite !important;
+    }
+    .hero__title__row:nth-child(2) {
+      animation-delay: 0.55s !important;
+    }
+    @keyframes titleWave {
+      0%, 100% { transform: translateY(0px); }
+      50%       { transform: translateY(-7px); }
     }
     .hero__title__accent {
       color: #1a3060 !important;
@@ -275,17 +283,13 @@
     }
     .hero__title__new {
       display: inline !important;
+      font-size: 1.3em !important;
       font-weight: 700 !important;
-      background: linear-gradient(110deg, #1a3060 0%, #2d6b9e 28%, #c8a865 52%, #2d6b9e 76%, #1a3060 100%) !important;
-      background-size: 280% auto !important;
-      -webkit-background-clip: text !important;
-      -webkit-text-fill-color: transparent !important;
-      background-clip: text !important;
-      animation: newCharFlow 3.8s 1.2s linear infinite !important;
-    }
-    @keyframes newCharFlow {
-      0%   { background-position: 100% center; }
-      100% { background-position: 0% center; }
+      color: #1a3060 !important;
+      -webkit-text-fill-color: #1a3060 !important;
+      background: none !important;
+      vertical-align: baseline !important;
+      animation: none !important;
     }
     .hero__sub {
       display: block !important;
