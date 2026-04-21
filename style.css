@@ -275,11 +275,7 @@
       50%       { transform: translateY(-7px); }
     }
     .hero__title__accent {
-      color: #1a3060 !important;
       display: inline !important;
-      font-size: 1.12em !important;
-      font-weight: 700 !important;
-      letter-spacing: 0.05em !important;
     }
     .hero__title__new {
       display: inline !important;
