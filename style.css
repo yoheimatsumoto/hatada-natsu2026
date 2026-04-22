@@ -232,8 +232,9 @@
       overflow: hidden;
       background: linear-gradient(135deg, var(--seto-blue), var(--seto-deep));
       color: var(--white);
-      font-size: 26px;
-      font-weight: 300;
+      font-family: "Noto Serif JP", serif;
+      font-size: 29px;
+      font-weight: 400;
       letter-spacing: 0.2em;
       padding: 14px 40px;
       border-radius: 36px;
@@ -692,7 +693,7 @@
       .early-bird__deal em  { font-size: 32px; }
 
       /* Hero badge */
-      .hero__badge          { font-size: 19px !important; font-weight: 300 !important; padding: 10px 20px; letter-spacing: 0.12em; }
+      .hero__badge          { font-size: 21px !important; font-weight: 400 !important; padding: 10px 20px; letter-spacing: 0.12em; }
 
       /* Hero KV */
       .hero-kv              { padding: 0 14px 44px; }
