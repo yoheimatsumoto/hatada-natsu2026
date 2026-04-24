@@ -80,9 +80,6 @@
                   <div class="product-card__qty">${p.qty}</div>
                 </div>
                 <div class="product-card__cta-wrap">
-                  ${p.price >= 3000
-                    ? `<div class="product-card__early-price">早割適用で ${(p.price - 500).toLocaleString()}円</div>`
-                    : `<div class="product-card__early-price product-card__early-price--hidden">早割適用で ${(p.price - 500).toLocaleString()}円</div>`}
                   <form class="product-card__cart-form" method="POST" action="https://www.hatada-kuritaruto.jp/CART/cart.php">
                     <input type="hidden" name="ITM-1" value="${p.itm}">
                     <input type="hidden" name="ITEM_NO" value="${p.itm}">
